@@ -1,0 +1,13 @@
+<%= form_tag say_decide_path do %> 
+	<label for="name">Name</label><br> 
+	<%= text_field_tag :name%><br>
+
+	<label for="statement">Statement</label><br> 
+	<%= text_area_tag :statement%><br>
+	<label for="say">Say</label><br>
+	<label for="hello1">Hello </label>
+	<%= radio_button_tag "score", 'hello1', false%>
+	<label for="goodbye1">Goodbye</label>
+	<%= radio_button_tag "score", 'goodbye1', false%><br>
+	<%= submit_tag "Submit" %><br>
+<% end %>
