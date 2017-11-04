@@ -82,4 +82,4 @@ production:
   <<: *default
   database: savecation_production
   username: savecation
-  password: <%= ENV['RUBY-GETTING-STARTED_DATABASE_PASSWORD'] %>
+  password: <%= ENV['SAVECATION_DATABASE_PASSWORD'] %>
