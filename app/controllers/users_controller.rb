@@ -16,8 +16,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @adminStatus = @user.isAdmin
-    @users = User.all
+    if @user.isAdmin
+      @users = User.all
+    end
   end
 
   private
