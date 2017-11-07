@@ -1,4 +1,10 @@
 class SessionsController < ApplicationController
+
+  layout "creative"
+
+  def index
+  end
+
   def new
   end
 
