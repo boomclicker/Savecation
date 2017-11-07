@@ -1,6 +1,14 @@
-<h1>THIS IS SHOW</h1>
 
-<p>
+<%= render 'creatives/navbar' %>
+
+
+
+<header>
+    <div class="header-content">
+        <div class="header-content-inner">
+            <h1>User Profile Page</h1>
+            <hr>
+    <p>
   <strong>Username:</strong>
   <%= @user.username %>
 </p>
@@ -11,15 +19,11 @@
 </p>
 
 <% if @user.isAdmin %>
-    <h1>ADMIN</h1>
-<% else %>
-    <h1>NOT ADMIN</h1>
-
-<% end %>
-
-<table>
+    <h3>ADMIN</h3>
+    <table>
   <tr>
     <td>Username</td>
+    
     <td>Email</td>
   </tr>
 
@@ -34,3 +38,10 @@
 
 
 </table>
+<% end %>
+
+
+            
+        </div>
+    </div>
+</header>
