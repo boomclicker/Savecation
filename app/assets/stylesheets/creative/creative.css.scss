@@ -4,6 +4,18 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+.field input{
+    color: black;
+}
+
+.actions [type="submit"] {
+    color: black;
+}
+
+#logged_in {
+    color:white
+}
+
 html,
 body {
     width: 100%;
@@ -185,6 +197,7 @@ header {
     background-size: cover;
     -o-background-size: cover;
 }
+
 
 header .header-content {
     position: relative;

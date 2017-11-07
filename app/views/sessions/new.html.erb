@@ -1,6 +1,14 @@
-<h1>Log In</h1>
 
-<%= form_tag sessions_path do %>
+<%= render 'creatives/navbar' %>
+
+
+
+<header>
+    <div class="header-content">
+        <div class="header-content-inner">
+            <h1>Log In</h1>
+            <hr>
+    <%= form_tag sessions_path do %>
     <div class="field">
       <%= label_tag :email %><br/>
       <%= text_field_tag :email, params[:email] %>
@@ -11,3 +19,7 @@
     </div>
     <div class="actions"><%= submit_tag "Log In" %></div>
 <% end %>
+            
+        </div>
+    </div>
+</header>
