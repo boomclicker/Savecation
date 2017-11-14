@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users
 
   root to: 'creatives#index'
+  get 'cities/index'
   # get 'creatives/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
