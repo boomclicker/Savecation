@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   # cities api routes
   get 'data/cities'
+  get 'data/city/:id', to: 'data#city'
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
@@ -18,6 +19,4 @@ Rails.application.routes.draw do
   resources :users
 
   root to: 'creatives#index'
-  # get 'creatives/index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
