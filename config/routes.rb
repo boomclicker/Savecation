@@ -3,9 +3,14 @@ Rails.application.routes.draw do
   get 'import/index'
 
   resources :triplaces do
-    collection { post :import}
-  end  
+    collection {post :import}
+  end
   resources :cities
+
+  # cities api routes
+  get 'data/cities'
+  get 'data/city/:id', to: 'data#city'
+
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
@@ -14,6 +19,4 @@ Rails.application.routes.draw do
   resources :users
 
   root to: 'creatives#index'
-  # get 'creatives/index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
