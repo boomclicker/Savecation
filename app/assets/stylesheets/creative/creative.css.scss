@@ -50,6 +50,7 @@
   transform: translate(-50%, -50%);
   margin-top: 20px;
   margin-bottom: 20px;
+  padding-bottom: 75px;
 }
 
 
@@ -517,7 +518,7 @@ fieldset[disabled] .btn-primary.active {
 
 .btn-xl {
   padding: 15px 30px;
-}
+} // size of the "Find out more button"
 
 ::-moz-selection {
   text-shadow: none;
@@ -543,4 +544,8 @@ img::-moz-selection {
 
 body {
   webkit-tap-highlight-color: #222;
+}
+
+.findoutmore {
+  padding-top: 100px !important;
 }
