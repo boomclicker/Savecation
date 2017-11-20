@@ -4,6 +4,59 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+
+.search {
+  width: 100%;
+  postion: relative
+}
+
+.searchTerm{
+  float: center;
+  width: 100%;
+  border: 3px solid #DD571C;  //border of the search box
+  border-right: 5px solid #DD571C;
+  padding: 5px;
+  height: 45px;
+  border-radius: 5px;
+  outline: none;
+  color: #DD571C  //"The text that shows up when nothing is typed and not clicked"
+}
+
+.searchTerm:focus{
+  color: #DD571C // The text that shows up when the search bar is clicked
+}
+
+
+
+.searchButton{
+  position: absolute;
+  right: -40px; // distance from the search bar
+  width: 45px;
+  height: 45px;
+  border: 1px solid  #DD571C;  //border of the search button
+  background: #DD571C; //search button color
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.wrap{
+  width: 70%;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 75px;
+  padding-top: 150px;
+}
+
+
+
+
 .field input {
   color: black;
 }
@@ -461,11 +514,12 @@ fieldset[disabled] .btn-primary.active {
   text-transform: uppercase;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 700;
+
 }
 
 .btn-xl {
   padding: 15px 30px;
-}
+} // size of the "Find out more button"
 
 ::-moz-selection {
   text-shadow: none;
@@ -491,4 +545,8 @@ img::-moz-selection {
 
 body {
   webkit-tap-highlight-color: #222;
+}
+
+.findoutmore {
+  padding-top: 100px !important;
 }
