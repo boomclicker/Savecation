@@ -1,22 +1,5 @@
 <h1>triplace</h1>
 <h2>import triplaces</h2>
-<table id="products">
-	<tr>
-		<th>title</th>
-		<th>price</th>
-		<th>photoURL</th>
-		<th>decription</th>
-	</tr>	
-<% @triplace.each do |triplace| %>
-	<tr>
-		<td><%= triplace.title %></td>
-		<td><%= triplace.Price %></td>
-		<td><%= triplace.photoURL %></td>
-		<td><%= triplace.decription %></td>
-		<td><%= triplace.city_id %></td>
-	</tr>	
-<% end %>
-</table>
 
 <%= form_tag import_triplaces_path, multipart: true do %>
 <%= file_field_tag :file %>
