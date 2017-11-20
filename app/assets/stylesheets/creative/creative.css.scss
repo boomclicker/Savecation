@@ -14,24 +14,25 @@
   float: center;
   width: 100%;
   border: 3px solid #DD571C;  //border of the search box
+  border-right: 5px solid #DD571C;
   padding: 5px;
-  height: 40px;
+  height: 45px;
   border-radius: 5px;
   outline: none;
   color: #DD571C  //"The text that shows up when nothing is typed and not clicked"
 }
 
 .searchTerm:focus{
-  color: #00B4CC
+  color: #DD571C // The text that shows up when the search bar is clicked
 }
 
 
 
 .searchButton{
   position: absolute;
-  right: -50px;
-  width: 40px;
-  height: 36px;
+  right: -40px; // distance from the search bar
+  width: 45px;
+  height: 45px;
   border: 1px solid  #DD571C;  //border of the search button
   background: #DD571C; //search button color
   text-align: center;
@@ -47,7 +48,16 @@
   top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
+
+.findoutmore{
+  margin-top: 20px;
+  padding: 20px;
+}
+
+
 .field input {
   color: black;
 }
