@@ -7,12 +7,22 @@
   <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'creative/manifest.js' %>
   <%= csrf_meta_tags %>
+
+  <!-- The JS file for autocomplete -->
+  <script src ="/node_modules/easy-autocomplete/dist/jquery.easy-autocomplete.min.js"></script>
+
+  <!-- The CSS file for autocomplete -->
+  <link rel ="stylesheet" href="/node_modules/easy-autocomplete/dist/easy-autocomplete.min.css">
+
+  <!-- Testing -->
+  <script src = 'app/assets/javascripts/creative/fuzzySearch.js'></script>
+
+
 </head>
 
 <body>
 
-<%= yield %>
+<%= yield %> <!--this adds everything in index.html.erb right here.-->
 
 </body>
 </html>
-
