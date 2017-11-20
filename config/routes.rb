@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get 'data/cities'
   get 'data/city/:id', to: 'data#city'
 
+  # attraction api routes
+  get 'data/attraction/:id', to: 'data#attraction'
+
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'

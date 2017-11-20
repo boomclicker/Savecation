@@ -17,4 +17,14 @@ class DataController < ApplicationController
       render json: {status: 'SUCCESS', message: 'Loaded all attractions', data: attractions}, status: :ok
     end
   end
+
+  def attraction
+    attraction = Triplace.where(id: params[:id])
+    if attraction.empty?
+      render json: {status: 'FAILURE', message: 'Attraction not found', data: attraction}, status: :ok
+    else
+      render json: {status: 'SUCCESS', message: 'Loaded attraction', data: attraction}, status: :ok
+    end
+  end
+
 end
