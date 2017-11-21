@@ -32,9 +32,9 @@
 //     $("#img_city").append(y);
      document.getElementById("img_city").innerHTML= y;
 
-     var x = data[0].description;
+     var x = "<p>" + data[0].description + "</p>";
      console.log(x);
-     $("#info").append(x);
+//     $("#info").append(x);
      document.getElementById("info").innerHTML= x;
 
 }
