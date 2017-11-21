@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   # attraction page routes
   get 'attraction_detail/:id', to: 'attraction_info#index'
 
+  # generate schedule routs
+  get 'generate_schedule/city=:city_id&days=:days', to: 'generate_schedule#no_budget'
+
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
