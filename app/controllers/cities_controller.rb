@@ -15,7 +15,10 @@ class CitiesController < ApplicationController
   # GET /cities/new
   def new
     @city = City.new
+    if(current_id)
     @user=User.find(current_user.id)
+    else
+    @user=nil
   end
 
   # GET /cities/1/edit

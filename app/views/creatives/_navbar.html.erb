@@ -30,7 +30,7 @@
             <li>
               <%= link_to "Log Out", logout_path %>
             </li>       
-            <% elsif @user.isAdmin %>
+            <% elsif @user!=nil && @user.isAdmin %>
             <li>
               <%= link_to "Profile page", user_url(current_user.id) %>
             </li>
