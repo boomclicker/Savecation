@@ -8,6 +8,7 @@ class TriplacesController < ApplicationController
   # GET /triplaces
   # GET /triplaces.json
   def index
+    @user = User.find(params[:id])
     @triplaces = Triplace.all
   end
 

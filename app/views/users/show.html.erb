@@ -18,9 +18,8 @@
         <%= @user.email %>
       </p>
 
-      <% if @user.isAdmin %>
+        <% if @user.isAdmin %>
 
-            <% if @users %>
               <h3>ADMIN</h3>
               <table>
                 <tr>
@@ -34,11 +33,10 @@
                       <td><%= user.email %></td>
                     </tr>
                 <% end %>
-            <% end %>
+          <% end %>
 
 
           </table>
-      <% end %>
 
 
     </div>
