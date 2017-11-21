@@ -1,0 +1,36 @@
+<%= render 'creatives/navbar' %>
+
+<header id="header_city_omg">
+  <div class="header-content">
+    <div class="header-content-inner" id="title_cities">
+      <h1><%= @title %></h1>
+      <hr>
+      <p>Located in <%= @city_name %></p>
+  </div>
+</header>
+
+<h3>Description</h3>
+<p id="info"></p>
+<script>
+
+ function gContent(){
+	function Get(yourUrl){
+    var Httpreq = new XMLHttpRequest(); // a new request
+    Httpreq.open("GET",yourUrl,false);
+    Httpreq.send(null);
+    return Httpreq.responseText;          
+	}
+	
+	var json_obj = JSON.parse(Get("https://pure-coast-27115.herokuapp.com/data/attraction/" + <%= @attraction_id %>));
+	console.log(json_obj);
+
+	data = json_obj["data"];
+
+    var x = data.description;
+    console.log(x);
+    $("#content").append(x);
+    document.getElementById("info").innerHTML= x;
+}
+</script>
+
+<script> window.onload=gContent(); </script>

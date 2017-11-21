@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'attraction_info/index'
+
   get 'import/index'
 
   resources :triplaces do
@@ -16,6 +18,9 @@ Rails.application.routes.draw do
 
   # city page routes
   get 'city_detail/:id', to: 'city_detail#index'
+
+  # attraction page routes
+  get 'attraction_detail/:id', to: 'attraction_info#index'
 
   # generate schedule routs
   get 'generate_schedule/city=:city_id&days=:days', to: 'generate_schedule#no_budget'
