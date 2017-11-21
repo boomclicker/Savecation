@@ -20,6 +20,7 @@ class CitiesController < ApplicationController
     else
     @user=nil
   end
+  end
 
   # GET /cities/1/edit
   def edit
