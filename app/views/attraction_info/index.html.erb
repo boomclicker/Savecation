@@ -27,9 +27,10 @@
 
 	data = json_obj["data"];
 
-     var y = "<img src=" + data[0].photoURL + ">";
+     var y = "<img src=" + "\"" + data[0].photoURL + "\""+ ">";
      console.log(y);
-     $("#img_city").append(y);
+//     $("#img_city").append(y);
+     document.getElementById("img_city").innerHTML= y;
 
      var x = data[0].description;
      console.log(x);
