@@ -4,6 +4,12 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+#city_detail_css{
+    }
+
+header2{
+  height:0;
+}
 
 .id {
   padding-top: 1000px;
@@ -260,6 +266,10 @@ header {
   -o-background-size: cover;
 }
 
+#header_city_omg {
+  background:black;
+}
+
 header .header-content {
   position: relative;
   width: 100%;
@@ -283,9 +293,11 @@ header .header-content .header-content-inner p {
   font-size: 16px;
   font-weight: 700;
   // color: rgba(255,255,255,.7);
-  color: white
+  color: white;
 
 }
+
+
 
 @media(min-width: 768px) {
   header {

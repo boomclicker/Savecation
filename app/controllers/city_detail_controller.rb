@@ -3,6 +3,7 @@ class CityDetailController < ApplicationController
 
   def index
     @city_id = params[:id]
-    # render json: {status: 'SUCCESS', message: 'Loaded all cities', data: @city_id}, status: :ok
+    @city_name = City.find(id=@city_id).name
+
   end
 end
