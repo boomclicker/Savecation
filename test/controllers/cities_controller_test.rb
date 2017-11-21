@@ -38,11 +38,5 @@ class CitiesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to city_url(@city)
   end
 
-  test "should destroy city" do
-    assert_difference('City.count', -1) do
-      delete city_url(@city)
-    end
-
-    assert_redirected_to cities_url
-  end
+ 
 end
