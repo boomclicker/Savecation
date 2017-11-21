@@ -5,6 +5,10 @@
  */
 
 
+.id {
+  padding-top: 1000px;
+}
+
 .search {
   width: 100%;
   postion: relative
@@ -31,6 +35,7 @@
 .searchButton{
   position: absolute;
   right: -40px; // distance from the search bar
+  top: 150px;
   width: 45px;
   height: 45px;
   border: 1px solid  #DD571C;  //border of the search button
