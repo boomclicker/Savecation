@@ -10,7 +10,6 @@
       <p>
         <strong>Username:</strong>
         <%= @user.username %>
-        <%= @city_id %>
       </p>
 
       <p>
