@@ -5,78 +5,42 @@
       <hr>
       <p>Savecation is an online app that allows users to vacation on a budget.</p>
 
-
-
-
-<!--      <datalist id="languages">
-        <option value="Vancouver">
-        <option value="Taipei">
-        <option value="Delhi">
-        <option value="Melbourne">
-        <option value="Yosemite">
-        <option value="Atlantis">
-        <option value="Texas">
-        <option value="London">
-        <option value="Moscow">
-        <option value="Victoria">
-        <option value="Toronto">
-        <option value="San Fransisco">
-      </datalist>
--->
-
-
-
-
-      <div class = "wrap">
+      <div class="wrap">
         <div class="search">
-          <input type= "text" id="ajax" list="json-citylist" class="searchTerm" placeholder="Enter your destination...">
+          <input type="text" id="ajax" list="json-citylist" class="searchTerm" placeholder="Enter your destination...">
           <datalist id="json-citylist"></datalist>
-          <button type = "submit" class = "searchButton">
-            <i class = "fa fa-search"></i>
-        </button>
+          <button type="submit" class="searchButton">
+            <i class="fa fa-search"></i>
+          </button>
         </div>
       </div>
 
+      <script type="text/javascript">
+          var dataList = document.getElementById('json-citylist');
+          var input = document.getElementById('ajax');
 
 
+          function Get() {
+              var Httpreq = new XMLHttpRequest(); // a new request
+              Httpreq.open("GET", "https://pure-coast-27115.herokuapp.com/data/cities", false);
+              Httpreq.send(null);
+              return Httpreq.responseText;
+          }
 
-<script type="text/javascript">
-var dataList = document.getElementById('json-citylist');
-var input = document.getElementById('ajax');
-
-
-function Get(yourUrl){
-  var Httpreq = new XMLHttpRequest(); // a new request
-  Httpreq.open("GET","https://pure-coast-27115.herokuapp.com/data/cities",false);
-  Httpreq.send(null);
-  return Httpreq.responseText;
-}
-var json_obj = JSON.parse(Get("https://pure-coast-27115.herokuapp.com/data/cities"));
-console.log(json_obj);
+          var json_obj = JSON.parse(Get());
+          console.log(json_obj);
 
 
-data = json_obj["data"];
-names = []
-for(var i = 0; i < data.length; i++) {
-  names[i] = data[i].name;
-  var option = document.createElement('option');
-// Set the value using the item in the JSON array.
-  option.value = names[i];
-  dataList.appendChild(option);
-  console.log(names[i]);
-}
-
-
-
-
-
-
-
-
-
-
-</script>
-
+          data = json_obj["data"];
+          names = [];
+          for (var i = 0; i < data.length; i++) {
+              names[i] = data[i].name;
+              var option = document.createElement('option');
+              option.value = names[i];
+              dataList.appendChild(option);
+              console.log(names[i]);
+          }
+      </script>
     </div>
   </div>
 </header>
