@@ -1,6 +1,6 @@
 class CreativesController < ApplicationController
   layout "creative"
-
   def index
-  end
-end
+    @user=User.find(current_user.id)  
+	end
+	end
