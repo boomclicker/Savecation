@@ -15,7 +15,7 @@ class CitiesController < ApplicationController
   # GET /cities/new
   def new
     @city = City.new
-    if(current_id)
+    if(current_user)
     @user=User.find(current_user.id)
     else
     @user=nil
