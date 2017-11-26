@@ -6,6 +6,9 @@
   <div class="header-content">
     <div class="header-content-inner">
       <h1>Log In</h1>
+      <% if flash[:success] %>
+        <div class="success" align="center" ><font size="5"><%= flash[:success] %></font></div>
+      <% end %>
       <hr>
       <%= form_tag sessions_path do %>
           <div class="field">
