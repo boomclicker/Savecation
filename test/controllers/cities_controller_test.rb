@@ -14,13 +14,16 @@ class CitiesControllerTest < ActionDispatch::IntegrationTest
     get new_city_url
     assert_response :success
   end
-
-  test "shouldnot create city" do
-    assert_not_difference('City.count') do
+  #only admin user can create city
+  test "should create city" do
+    assert_difference'City.count' do
+      post user_path, params: {user:{name: "userrrr",
+                                 email: "userr@RR.com"
+                                 password:    "userrrr"
+                                 password_confirmation: "userrrr"
+                                 isAdmin: true} }
       post cities_url, params: { city: { name: @city.name } }
     end
-
-    assert_redirected_to city_url(City.last)
   end
 
   test "should show city" do
@@ -28,10 +31,13 @@ class CitiesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_city_url(@city)
-    assert_response :success
-  end
-
- 
+  test "should not create city" do
+    assert_no_difference 'City.count' do
+      post user_path, params: {user:{name: "userrr",
+                                 email: "user@RR.com"
+                                 password:    "userrr"
+                                 password_confirmation: "userrr"
+                                 isAdmin: false} }
+      post cities_url, params: { city: { name: @city.name } }
+    end  
 end

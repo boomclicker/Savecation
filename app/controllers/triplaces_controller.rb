@@ -2,8 +2,13 @@ class TriplacesController < ApplicationController
   before_action :set_triplace, only: [:show, :edit, :update, :destroy]
 
   def import
+    if params[:file]!=nil
     Triplace.import(params[:file])
     redirect_to root_url, notice: "Products imported"
+    else
+      redirect_to import_url(flash)
+      flash[:success] = "you cannot import without file"
+    end  
   end   
   # GET /triplaces
   # GET /triplaces.json
@@ -69,6 +74,7 @@ class TriplacesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_triplace
+      
       @triplace = Triplace.find(params[:id])
     end
 

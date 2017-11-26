@@ -1,4 +1,5 @@
 <%= form_with(model: triplace, local: true) do |form| %>
+  <% if triplace %>
   <% if triplace.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(triplace.errors.count, "error") %> prohibited this triplace from being saved:</h2>
@@ -10,7 +11,7 @@
       </ul>
     </div>
   <% end %>
-
+  <% end %>
   <div class="actions">
     <%= form.submit %>
   </div>
