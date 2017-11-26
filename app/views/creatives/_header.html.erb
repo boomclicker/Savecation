@@ -2,18 +2,57 @@
   <div class="header-content">
     <div class="header-content-inner">
       <h1>Savecation</h1>
-      <hr>
-      <p>Savecation is an online app that allows users to vacation on a budget.</p>
+<br>
 
+      <script>
+     function search(){
+      var input = document.getElementById("ajax").value;
+      if (input == "Vancouver" || input == "vancouver"){
+        window.location = "http://pure-coast-27115.herokuapp.com/city_detail/1";
+        return;
+     }
+     if (input == "Victoria" || input == "victoria"){
+        window.location = "http://pure-coast-27115.herokuapp.com/city_detail/2";
+        return;
+     }
+     if (input == "Rio de Janeiro" || input == "rio de janeiro"){
+        window.location = "http://pure-coast-27115.herokuapp.com/city_detail/3";
+        return;
+     }
+     if (input == "Taipei" || input == "taipei"){
+        window.location = "http://pure-coast-27115.herokuapp.com/city_detail/4";
+        return;
+     }
+     if (input == "Sydney" || input == "sydney"){
+        window.location = "http://pure-coast-27115.herokuapp.com/city_detail/5";
+        return;
+     }
+     if (input == "Amsterdam" || input == "amsterdam"){
+        window.location = "http://pure-coast-27115.herokuapp.com/city_detail/6";
+        return;
+      }
+     else{
+      document.getElementById("errorm").innerHTML="Oops! Invalid entry!";
+    return;
+     }
+      }
+    </script>
+
+      <p>Savecation is an online app that allows users to vacation on a budget.</p><br>
       <div class="wrap">
         <div class="search">
-          <input type="text" id="ajax" list="json-citylist" class="searchTerm" placeholder="Enter your destination...">
+          <input type="text" id="ajax" list="json-citylist" class="searchTerm" placeholder="Enter your destination..." >
           <datalist id="json-citylist"></datalist>
-          <button type="submit" class="searchButton">
+          <button onclick="search()" type="submit" class="searchButton">
             <i class="fa fa-search"></i>
           </button>
         </div>
+        <p id="errorm"></p> 
       </div>
+
+
+
+
 
       <script type="text/javascript">
           var dataList = document.getElementById('json-citylist');

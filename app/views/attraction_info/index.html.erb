@@ -6,12 +6,27 @@
       <h1><%= @title %></h1>
       <hr>
       <p>Located in <%= @city_name %></p>
+      <a onclick="goBack()" class="btn btn-primary btn-xl page-scroll">Back</a>
+      </div>
+      <br>
+
+  <div class="column" style="background-color:black;">
+    <p id="img_city"></p>
   </div>
+  <div class="column" style="background-color:black;">
+    <p class = "leftalign" id="info"></p>
+  </div>
+
 </header>
 
-<h3>Description of <%= @title %></h3>
-<p id="img_city"></p>
-<p id="info"></p>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+<!-- <h3>Description of <%= @title %></h3> -->
+
 <script>
 
  function gContent(){
