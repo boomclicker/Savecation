@@ -20,7 +20,7 @@
         <li>
           <%= link_to "Home", root_path %>
         </li>
-        <% if current_user %>
+        <% if @user!=nil && @user.isAdmin %>
 
             <!--        <div id = "logged_in">Logged in as <%= current_user.username %>.</div> -->
              
@@ -29,19 +29,19 @@
             </li>
             <li>
               <%= link_to "Log Out", logout_path %>
-            </li>       
-            <% elsif @user!=nil && @user.isAdmin %>
-            <li>
-              <%= link_to "Profile page", user_url(current_user.id) %>
-            </li>
-            <li>
-              <%= link_to "Log Out", logout_path %>
-            </li>
+            </li> 
             <li>
               <%= link_to "Add", add_path(current_user.id) %>
             </li>
             <li>
               <%= link_to "Import", import_path(current_user.id) %>
+            </li>      
+            <% elsif current_user %>
+            <li>
+              <%= link_to "Profile page", user_url(current_user.id) %>
+            </li>
+            <li>
+              <%= link_to "Log Out", logout_path %>
             </li>
         <% else %>
             <li>
