@@ -12,10 +12,12 @@ class DataController < ApplicationController
   def city
     attractions = Triplace.where(city_id: params[:id])
     city_name = City.find(params[:id]).name
+    country_name = City.find(params[:id]).country
     if attractions.empty?
       render json: {status: 'FAILURE', message: 'No attractions found / City does not exist', data: attractions}, status: :ok
     else
-      render json: {status: 'SUCCESS', message: 'Loaded all attractions', city_name: city_name, data: attractions}, status: :ok
+      render json: {status: 'SUCCESS', message: 'Loaded all attractions', city_name: city_name, country_name: country_name,
+                    data: attractions}, status: :ok
     end
   end
 
