@@ -39,5 +39,7 @@ class CitiesControllerTest < ActionDispatch::IntegrationTest
                                  password_confirmation: "userrr"
                                  isAdmin: false} }
       post cities_url, params: { city: { name: @city.name } }
-    end  
+    end
+  end  
+end
 end
