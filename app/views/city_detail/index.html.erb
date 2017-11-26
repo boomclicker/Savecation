@@ -5,10 +5,12 @@
     <div class="header-content-inner" id="title_cities">
       <h1><%= @city_name %></h1>
       <hr>
-      <p>Listing all the attractions for <%= @city_name %></p>
+      <p>Listing all attractions for <%= @city_name %></p>
+      <a href="#show_list" class="btn btn-primary btn-xl page-scroll">Go</a>
   </div>
 </header>
 
+<section id="show_list">
 <table class = "table">
     <thead>
         <tr>
@@ -21,6 +23,7 @@
     <tbody id="content">
     </tbody>
 </table>
+</section>
 
 <script>
 
