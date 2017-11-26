@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to root_url, notice: "Logged in"
+      flash.now.alert = "welcome to Savecation"
 
     else
       flash.now.alert = "Email or password is invalid"

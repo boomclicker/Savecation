@@ -7,6 +7,9 @@
     <div class="header-content-inner">
       <h1>User Profile Page</h1>
       <hr>
+      <% if flash[:success] %>
+        <div class="success" align="center" background-color:#00ff00><%= flash[:success] %></div>
+      <% end %>  
       <p>
         <strong>Username:</strong>
         <%= @user.username %>
