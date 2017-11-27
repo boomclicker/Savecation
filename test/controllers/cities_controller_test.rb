@@ -18,9 +18,9 @@ class CitiesControllerTest < ActionDispatch::IntegrationTest
   test "should create city" do
     assert_difference'City.count' do
       post user_path, params: {user:{name: "userrrr",
-                                 email: "userr@RR.com"
-                                 password:    "userrrr"
-                                 password_confirmation: "userrrr"
+                                 email: "userr@RR.com",
+                                 password:    "userrrr",
+                                 password_confirmation: "userrrr",
                                  isAdmin: true} }
       post cities_url, params: { city: { name: @city.name } }
     end
@@ -34,12 +34,12 @@ class CitiesControllerTest < ActionDispatch::IntegrationTest
   test "should not create city" do
     assert_no_difference 'City.count' do
       post user_path, params: {user:{name: "userrr",
-                                 email: "user@RR.com"
-                                 password:    "userrr"
-                                 password_confirmation: "userrr"
+                                 email: "user@RR.com",
+                                 password:    "userrr",
+                                 password_confirmation: "userrr",
                                  isAdmin: false} }
       post cities_url, params: { city: { name: @city.name } }
     end
   end  
 end
-end
+
