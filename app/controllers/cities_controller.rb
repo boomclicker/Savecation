@@ -15,11 +15,11 @@ class CitiesController < ApplicationController
   # GET /cities/new
   def new
     @city = City.new
-    if(current_user)
-    @user=User.find(current_user.id)
+    if current_user
+      @user=User.find(current_user.id)
     else
-    @user=nil
-  end
+      @user=nil
+    end
   end
 
   # GET /cities/1/edit
@@ -32,11 +32,11 @@ class CitiesController < ApplicationController
     @city = City.new(city_params)
     respond_to do |format|
       if @city.save
-        format.html { redirect_to @city, notice: 'City was successfully created.' }
-        format.json { render :show, status: :created, location: @city }
+        format.html {redirect_to @city, notice: 'City was successfully created.'}
+        format.json {render :show, status: :created, location: @city}
       else
-        format.html { render :new }
-        format.json { render json: @city.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @city.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -46,11 +46,11 @@ class CitiesController < ApplicationController
   def update
     respond_to do |format|
       if @city.update(city_params)
-        format.html { redirect_to @city, notice: 'City was successfully updated.' }
-        format.json { render :show, status: :ok, location: @city }
+        format.html {redirect_to @city, notice: 'City was successfully updated.'}
+        format.json {render :show, status: :ok, location: @city}
       else
-        format.html { render :edit }
-        format.json { render json: @city.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @city.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -60,19 +60,19 @@ class CitiesController < ApplicationController
   def destroy
     @city.destroy
     respond_to do |format|
-      format.html { redirect_to cities_url, notice: 'City was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to cities_url, notice: 'City was successfully destroyed.'}
+      format.json {head :no_content}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_city
-      @city = City.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_city
+    @city = City.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def city_params
-      params.require(:city).permit(:name, :country)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def city_params
+    params.require(:city).permit(:name, :country, :photoURL)
+  end
 end
