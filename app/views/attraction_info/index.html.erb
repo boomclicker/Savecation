@@ -7,52 +7,53 @@
       <hr>
       <p>Located in <%= @city_name %></p>
       <a onclick="goBack()" class="btn btn-primary btn-xl page-scroll">Back</a>
-      </div>
-      <br>
+    </div>
+    <br>
 
-  <div class="column" style="background-color:black;">
-    <p id="img_city"></p>
-  </div>
-  <div class="column" style="background-color:black;">
-    <p class = "leftalign" id="info"></p>
+    <div class="column" style="background-color:black;">
+      <p id="img_city"></p>
+    </div>
+    <div class="column" style="background-color:black;">
+      <p class="leftalign" id="info"></p>
+    </div>
   </div>
 
 </header>
 
 <script>
-function goBack() {
-    window.history.back();
-}
+    function goBack() {
+        window.history.back();
+    }
 </script>
 
 <!-- <h3>Description of <%= @title %></h3> -->
 
 <script>
 
- function gContent(){
-	function Get(yourUrl){
-    var Httpreq = new XMLHttpRequest(); // a new request
-    Httpreq.open("GET",yourUrl,false);
-    Httpreq.send(null);
-    return Httpreq.responseText;          
-	}
-	
-	var json_obj = JSON.parse(Get("https://pure-coast-27115.herokuapp.com/data/attraction/" + <%= @attraction_id %>));
-	console.log(json_obj);
+    function gContent() {
+        function Get(yourUrl) {
+            var Httpreq = new XMLHttpRequest(); // a new request
+            Httpreq.open("GET", yourUrl, false);
+            Httpreq.send(null);
+            return Httpreq.responseText;
+        }
 
-	data = json_obj["data"];
+        var json_obj = JSON.parse(Get("https://pure-coast-27115.herokuapp.com/data/attraction/" + <%= @attraction_id %>));
+        console.log(json_obj);
 
-     var y = "<img src=" + "\"" + data[0].photoURL + "\""+ ">";
-     console.log(y);
+        data = json_obj["data"];
+
+        var y = "<img src=" + "\"" + data[0].photoURL + "\"" + ">";
+        console.log(y);
 //     $("#img_city").append(y);
-     document.getElementById("img_city").innerHTML= y;
+        document.getElementById("img_city").innerHTML = y;
 
-     var x = "<p>" + data[0].description + "</p>";
-     console.log(x);
+        var x = "<p>" + data[0].description + "</p>";
+        console.log(x);
 //     $("#info").append(x);
-     document.getElementById("info").innerHTML= x;
+        document.getElementById("info").innerHTML = x;
 
-}
+    }
 </script>
 
-<script> window.onload=gContent(); </script>
+<script> window.onload = gContent(); </script>
