@@ -14,7 +14,7 @@
 <%= link_to "back", root_path %>
 <% end %>
 <% else %>
-<center><strong><font size="6">sorry, you are not admin</font></strong></center>
+<div class="success" align="center" ><font size="5"><%= flash[:aster] %></font></div>
 <%= link_to "back", root_path %>
 <% end %>
 </div>

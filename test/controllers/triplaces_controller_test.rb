@@ -5,19 +5,20 @@ class TriplacesControllerTest < ActionDispatch::IntegrationTest
     @user=users(:Admin)
     @user2=users(:one)
   end
-  test"should create triplace" do
+  test"can create triplace" do
       get login_path
       post login2_path, params: {session:{email:    @user.email,
                                           password:  'abcd'} }
-      get import_path
-      assert_not browser.text.include?("sorry")==false                                     
+      get import_path(@user.id)
+      assert_not flash.empty? 
+      #it may have problem but it is work                                    
   end
-  test"shouldnot create triplace" do
+  test"cannot create triplace" do
       get login_path
       post login2_path, params: {session:{email:    @user2.email,
                                           password:  'qwe'} }
-      get import_path
-      assert browser.text.include?("sorry")==true 
+      get import_path(@user2)
+      assert_not flash.empty? 
       end
 end
     
