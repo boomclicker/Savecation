@@ -19,10 +19,10 @@ class CitiesControllerTest < ActionDispatch::IntegrationTest
   #only admin user can create city
   test "admin can create city" do
     get login_path
-    get login_path, params: {session:{email:    @user.email,
+    post login2_path, params: {session:{email:    @user.email,
                                           password:  'abcd'} }
-    get new_city_url
-    assert browser.text.include?("sorry")==false                                      
+    get add_url(@user)
+    assert_response :success                                      
     end
 
   test "should show city" do
@@ -32,10 +32,10 @@ class CitiesControllerTest < ActionDispatch::IntegrationTest
 
   test "user can not create city" do
     get login_path
-    get login_path, params: {session:{email:    @user2.email,
+    post login2_path, params: {session:{email:    @user2.email,
                                           password:  'qwe'} }
-    get new_city_url
-    assert browser.text.include?("sorry")==true
+    get add_url(@user2)
+    assert_not flash.empty?
     end
   end  
 

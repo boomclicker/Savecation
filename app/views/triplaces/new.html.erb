@@ -1,5 +1,35 @@
-<h1>New Triplace</h1>
+<%= render 'creatives/navbar' %>
 
-<%= render 'form', triplace: @triplace %>
+<header>
+  <div class="header-content">
+    <div class="header-content-inner">
+      <h1>new triplace</h1>
+      <hr>
+      <%= form_for @triplace do |f| %>
+          <div class="field">
+            <%= f.label :title %><br/>
+            <%= f.text_field :title %>
+          </div>
+          <div class="field">
+            <%= f.label :Price %><br/>
+            <%= f.number_field :Price %>
+          </div>
+          <div class="field">
+            <%= f.label :photoURL %><br/>
+            <%= f.text_field :photoURL %>
+          </div>
+          <div class="field">
+            <%= f.label :decription %><br/>
+            <%= f.text_field :decription %>
+          </div>
+          <div class="field">
+            <%= f.label :city_id %><br/>
+            <%= f.number_field :city_id %>
+          </div>
+          <div class="actions"><%= f.submit "Create" %></div>
+      <% end %>
 
+    </div>
+  </div>
+</header>
 <%= link_to 'Back', triplaces_path %>

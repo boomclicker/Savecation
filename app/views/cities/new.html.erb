@@ -7,7 +7,9 @@
 <%= render 'form', city: @city %>
 <%= link_to 'Back', cities_path %>
 <% else %>
- <center><strong><font size="6">sorry you are not Admin </font></strong></center>
+ <% if flash[:success] %>
+        <div class="success" align="center" ><font size="5"><%= flash[:success] %></font></div>
+    <% end %>
  <%= link_to "back", root_path %>
  <% end %>
 </div>

@@ -15,6 +15,7 @@ class CitiesController < ApplicationController
   # GET /cities/new
   def new
     @city = City.new
+    flash[:success] = "sorry you are not admin"
     if(current_user)
     @user=User.find(current_user.id)
     else

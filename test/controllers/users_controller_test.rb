@@ -4,7 +4,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test"invalid signup information" do 
   	get signup_path
   	assert_no_difference 'User.count' do 
-       get signup_path, params: {user:{ name: "",
+       post signup2_path, params: {user:{ name: "",
        	                                email: "user@invalid",
        	                                password:      "waa",
        	                                password_confirmation: "wan"}}
@@ -14,7 +14,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
  test "valid singup information" do
  	get signup_path
  	assert_no_difference 'User.count' do
- 		get signup_path, params: {user:{name: "userrrr",
+ 		post signup2_path, params: {user:{name: "userrrr",
  			                           email: "userr@RR.com",
  			                           password:    "userrrr",
  			                           password_confirmation: "userrrr"} }

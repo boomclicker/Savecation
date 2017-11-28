@@ -13,7 +13,7 @@ class TriplacesController < ApplicationController
   # GET /triplaces
   # GET /triplaces.json
   def index
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
     @triplaces = Triplace.all
   end
 
@@ -24,7 +24,10 @@ class TriplacesController < ApplicationController
 
   # GET /triplaces/new
   def new
-    @triplace = Triplace.new
+    @triplace = Triplace.new(triplace_params)
+    if @triplace.save
+      redirect_to root_url
+    end  
   end
 
   # GET /triplaces/1/edit

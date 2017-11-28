@@ -30,7 +30,8 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'add' , to: 'cities#new' , as: 'add'
   get 'import' , to: 'import#index' , as: 'import'
-
+  post 'login2', to: 'sessions#create', as: 'login2'
+  post 'signup2', to: 'users#create', as: 'signup2'
   resources :sessions
   resources :users
 
