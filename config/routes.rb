@@ -22,14 +22,16 @@ Rails.application.routes.draw do
   # attraction page routes
   get 'attraction_detail/:id', to: 'attraction_info#index'
 
-  # generate schedule routs
-  get 'generate_schedule/city=:city_id&days=:days', to: 'generate_schedule#no_budget'
+  # generate schedule routes
+  get 'generate_schedule/city/:city_id/days/:days', to: 'generate_schedule#no_budget'
+  get 'generate_schedule/city/:city_id/days/:days/budget/:budget', to: 'generate_schedule#budget'
+
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
-  get 'add' , to: 'cities#new' , as: 'add'
-  get 'import' , to: 'import#index' , as: 'import'
+  get 'add', to: 'cities#new', as: 'add'
+  get 'import', to: 'import#index', as: 'import'
 
   resources :sessions
   resources :users
