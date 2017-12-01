@@ -13,11 +13,12 @@ class DataController < ApplicationController
     attractions = Triplace.where(city_id: params[:id])
     city_name = City.find(params[:id]).name
     country_name = City.find(params[:id]).country
+    read_more_url = 'http://pure-coast-27115.herokuapp.com/data/attraction/' + attractions.id
     if attractions.empty?
       render json: {status: 'FAILURE', message: 'No attractions found / City does not exist', data: attractions}, status: :ok
     else
       render json: {status: 'SUCCESS', message: 'Loaded all attractions', city_name: city_name, country_name: country_name,
-                    data: attractions}, status: :ok
+                    data: attractions, read_more_url: read_more_url}, status: :ok
     end
   end
 
