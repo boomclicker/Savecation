@@ -2,63 +2,27 @@
   <div class="header-content">
     <div class="header-content-inner">
       <h1>Savecation</h1>
-<br>
-
-      <script>
-     function search(){
-      var input = document.getElementById("ajax").value;
-      if (input == "Vancouver" || input == "vancouver"){
-        window.location = "http://pure-coast-27115.herokuapp.com/city_detail/1";
-        return;
-     }
-     if (input == "Victoria" || input == "victoria"){
-        window.location = "http://pure-coast-27115.herokuapp.com/city_detail/2";
-        return;
-     }
-     if (input == "Rio de Janeiro" || input == "rio de janeiro"){
-        window.location = "http://pure-coast-27115.herokuapp.com/city_detail/3";
-        return;
-     }
-     if (input == "Taipei" || input == "taipei"){
-        window.location = "http://pure-coast-27115.herokuapp.com/city_detail/4";
-        return;
-     }
-     if (input == "Sydney" || input == "sydney"){
-        window.location = "http://pure-coast-27115.herokuapp.com/city_detail/5";
-        return;
-     }
-     if (input == "Amsterdam" || input == "amsterdam"){
-        window.location = "http://pure-coast-27115.herokuapp.com/city_detail/6";
-        return;
-      }
-     else{
-      document.getElementById("errorm").innerHTML="Oops! Invalid entry!";
-    return;
-     }
-      }
-    </script>
-
+      <br>
       <p>Savecation is an online app that allows users to vacation on a budget.</p><br>
       <div class="wrap">
         <div class="search">
-          <input type="text" id="ajax" list="json-citylist" class="searchTerm" placeholder="Enter your destination..." >
+          <input type="text" autocomplete="off" id="search_term" list="json-citylist" class="searchTerm" placeholder="Enter your destination...">
           <datalist id="json-citylist"></datalist>
           <button onclick="search()" type="submit" class="searchButton">
             <i class="fa fa-search"></i>
           </button>
         </div>
-        <p id="errorm"></p> 
+        <p id="errorm"></p>
       </div>
-
-
-
-
 
       <script type="text/javascript">
           var dataList = document.getElementById('json-citylist');
           var input = document.getElementById('ajax');
 
 
+          /**
+           * @return {string}
+           */
           function Get() {
               var Httpreq = new XMLHttpRequest(); // a new request
               Httpreq.open("GET", "https://pure-coast-27115.herokuapp.com/data/cities", false);
@@ -67,17 +31,24 @@
           }
 
           var json_obj = JSON.parse(Get());
-          console.log(json_obj);
-
-
           data = json_obj["data"];
-          names = [];
+          var dict = {};
+
           for (var i = 0; i < data.length; i++) {
-              names[i] = data[i].name;
               var option = document.createElement('option');
-              option.value = names[i];
+              option.value = data[i].name;
               dataList.appendChild(option);
-              console.log(names[i]);
+              dict[data[i].name.toLowerCase()] = "https://pure-coast-27115.herokuapp.com/city_detail/" + data[i].id;
+          }
+
+          function search() {
+              var input = document.getElementById("search_term").value.toLowerCase();
+              var keys = Object.keys(dict);
+              keys.forEach(function (key) {
+                  if (key === input) {
+                      window.location = dict[key];
+                  }
+              });
           }
       </script>
     </div>
