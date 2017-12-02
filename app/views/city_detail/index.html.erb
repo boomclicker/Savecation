@@ -17,12 +17,14 @@
     <tr>
       <th>Title</th>
       <th>Price</th>
+      <th>Description</th>
     </tr>
     </thead>
     <tfoot>
     <tr>
       <th>Title</th>
       <th>Price</th>
+      <th>Description</th>
     </tr>
     </tfoot>
   </table>
@@ -32,12 +34,30 @@
     $(document).ready(function () {
         $('#table_data').DataTable({
             "processing": true,
-            "ajax": "http://localhost:5000/data/city/" + <%= @city_id %>,
-            "columns": [
-                {"data": "title"},
-                {"data": "price"}
-            ],
-            "lengthMenu": [[15, 25, 50, 100, -1], [15, 25, 50, 100, "All"]]
-        });
+            ajax: {
+                "url": "http://localhost:5000/data/city/" + <%= @city_id %>
+            },
+            "columns":
+                [
+                    {data: "title"},
+                    {
+                        data: "price", render: function (data, type, row) {
+                        if (type === 'display') {
+                            var numberRenderer = $.fn.dataTable.render.number(',', '.', 0, '$').display;
+                            return numberRenderer(data);
+                        }
+                        return data;
+                    }
+                    },
+                    {
+                        data: "id", render: function (data, type, row) {
+                        return '<a href="https://pure-coast-27115.herokuapp.com/attraction_detail/' + data + '">Learn more <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></a>';
+                    }
+                    }
+                ],
+            "lengthMenu":
+                [[15, 25, 50, 100, -1], [15, 25, 50, 100, "All"]]
+        })
+        ;
     });
 </script>
