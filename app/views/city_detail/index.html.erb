@@ -35,7 +35,7 @@
         $('#table_data').DataTable({
             "processing": true,
             ajax: {
-                "url": "http://localhost:5000/data/city/" + <%= @city_id %>
+                "url": "https://pure-coast-27115.herokuapp.com/data/city/" + <%= @city_id %>
             },
             "columns":
                 [
