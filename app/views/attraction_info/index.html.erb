@@ -20,15 +20,11 @@
 
 </header>
 
+
 <script>
     function goBack() {
         window.history.back();
     }
-</script>
-
-<!-- <h3>Description of <%= @title %></h3> -->
-
-<script>
 
     function gContent() {
         function Get(yourUrl) {
@@ -43,17 +39,9 @@
 
         data = json_obj["data"];
 
-        var y = "<img src=" + "\"" + data[0].photoURL + "\"" + ">";
-        console.log(y);
-//     $("#img_city").append(y);
-        document.getElementById("img_city").innerHTML = y;
-
-        var x = "<p>" + data[0].description + "</p>";
-        console.log(x);
-//     $("#info").append(x);
-        document.getElementById("info").innerHTML = x;
-
+        document.getElementById("img_city").innerHTML = "<img src=" + "\"" + data[0].photoURL + "\"" + ">";
+        document.getElementById("info").innerHTML = "<p>" + data[0].description + "</p>";
     }
-</script>
 
-<script> window.onload = gContent(); </script>
+    window.onload = gContent();
+</script>
