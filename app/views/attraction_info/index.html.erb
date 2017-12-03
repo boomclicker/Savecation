@@ -70,7 +70,7 @@ function initmap() {
       }
 
       function geocodeAddress(geocoder, resultsMap) {
-        var A = data.title;
+        var A = data[0].title;
         var B = A.replace(/[0-9]/g,'');
         var address = B.substr(B.indexOf(" ")+1);
         geocoder.geocode({'address': address}, function(results, status) {
@@ -86,5 +86,5 @@ function initmap() {
         });
       }      
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key= AIzaSyBYaZm78UW52E-0pnBEaLYYO9mwKkmbTxU&callback=initmap"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYaZm78UW52E-0pnBEaLYYO9mwKkmbTxU&callback=initmap"></script>
 <script> window.onload=gContent(); </script>
