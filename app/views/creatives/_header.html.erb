@@ -2,7 +2,7 @@
   <div class="header-content">
     <div class="header-content-inner">
       <h1>Savecation</h1>
-      <br>
+      <br><br><br>
       <p>Savecation is an online app that allows users to vacation on a budget.</p><br>
       <div class="wrap">
         <div class="search">
@@ -47,6 +47,9 @@
               keys.forEach(function (key) {
                   if (key === input) {
                       window.location = dict[key];
+                  }
+                  else{
+                    document.getElementById("errorm").innerHTML="ERROR: City spelled wrong or not yet supported";
                   }
               });
           }
