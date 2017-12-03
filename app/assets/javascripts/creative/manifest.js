@@ -9,6 +9,4 @@
 //= require creative/creative
 //= require pls_jquery
 //= require data_table
-//= require mapdata
-//= require worldmap
 //= require_self
