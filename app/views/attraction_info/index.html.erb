@@ -42,10 +42,19 @@
      console.log(x);
 //     $("#info").append(x);
      document.getElementById("info").innerHTML= x;   
+}
 function initmap() {
-     //var place="https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyCca9lpSGFOkA550bJfU7AgVuDzDHdGeCM"
-     
-     //var address=data.title
+     function GGet(yourUrl){
+    var Httpreq = new XMLHttpRequest(); // a new request
+    Httpreq.open("GET",yourUrl,false);
+    Httpreq.send(null);
+    return Httpreq.responseText;          
+  }
+  
+  var json_obj = JSON.parse(GGet("https://pure-coast-27115.herokuapp.com/data/attraction/" + <%= @attraction_id %>));
+  console.log(json_obj);
+
+  data = json_obj["data"];
      var op = {
       zoom:8,
       center:{lat:42.3601,lng:-71.0589}
@@ -73,8 +82,7 @@ function initmap() {
             alert('Geocode was not successful for the following reason: ' + status);
           }
         });
-      }
-}      
+      }      
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key= AIzaSyBYaZm78UW52E-0pnBEaLYYO9mwKkmbTxU&callback=initmap"></script>
 <script> window.onload=gContent(); </script>
