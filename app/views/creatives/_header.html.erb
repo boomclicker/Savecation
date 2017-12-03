@@ -4,7 +4,7 @@
       <h1>Savecation</h1>
       <br>
       <p>Savecation is an online app that allows users to vacation on a budget.</p><br>
-      <div class="wrap">
+      <!-- <div class="wrap">
         <div class="search">
           <input type="text" autocomplete="off" id="search_term" list="json-citylist" class="searchTerm" placeholder="Enter your destination...">
           <datalist id="json-citylist"></datalist>
@@ -13,7 +13,58 @@
           </button>
         </div>
         <p id="errorm"></p>
-      </div>
+      </div> -->
+
+
+
+
+
+      <script>
+      //  var xhr = new XMLHttpRequest();
+          var apiAddress = 'http://api.apixu.com/v1/forecast.json?key=c0d375072f834120aa250648170312&q=';
+        var city = 'Vancouver';
+          var url = apiAddress + city;
+      //    xhr.open("GET", url, false);
+        //  xhr.send();
+          //formmatedStuff =
+      //    loadJSON(url,gotData);
+        //  function gotData(data){
+        //    weather = data;
+      //    }
+        //  var json = JSON.parse()
+
+          $(function(){
+            $.getJSON(url,function(data){
+
+              var temp = data.current.temp_c + " C";
+              var weather2 = data.current.condition.text;
+              var weathercode = 'http:'+data.current.condition.icon;
+
+              document.getElementById("mytemp").innerHTML = temp;
+              document.getElementById("myweather2").innerHTML = weather2;
+
+              var img = document.createElement("img");
+              img.src = weathercode;
+              var src = document.getElementById("weathericon");
+              src.appendChild(img);
+
+         console.log(temp);
+         console.log(weather2);
+         })
+
+          })
+        //  console.log(weather.main.temp);
+        //  console.log(xhr.status);
+        //  console.log(xhr.statusText);
+
+
+
+      </script>
+
+
+
+
+
 
       <script type="text/javascript">
           var dataList = document.getElementById('json-citylist');
@@ -57,6 +108,14 @@
               }
           });
       </script>
+
+
+      <div id="testing123">
+        <p> Weather: <span id="myweather2"></span> <span id="weathericon"></span> </p>
+        <p> Temperature: <span id="mytemp"></span></p>
+      </div>
+
     </div>
+
   </div>
 </header>
