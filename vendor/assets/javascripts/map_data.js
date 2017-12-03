@@ -1,4 +1,4 @@
-console.log("mapdata.js loaded");
+console.log("map_data.js loaded");
 
 var simplemaps_worldmap_mapdata = {
 

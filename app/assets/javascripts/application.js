@@ -14,5 +14,5 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
-//= require mapdata
-//= require worldmap
+//= require map_data
+//= require world_map
