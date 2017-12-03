@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'supported_cities/index'
+
   get 'attraction_info/index'
 
   get 'import/index'
