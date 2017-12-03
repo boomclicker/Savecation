@@ -21,7 +21,7 @@
 
       <script>
       //  var xhr = new XMLHttpRequest();
-          var apiAddress = 'http://api.apixu.com/v1/forecast.json?key=c0d375072f834120aa250648170312&q=';
+          var apiAddress = 'http://api.apixu.com/v1/forecast.json?key=c0d375072f834120aa250648170312&days=10&q=';
         var city = 'Vancouver';
           var url = apiAddress + city;
       //    xhr.open("GET", url, false);
@@ -37,19 +37,52 @@
             $.getJSON(url,function(data){
 
               var temp = data.current.temp_c + " C";
-              var weather2 = data.current.condition.text;
+              var weatherX = data.current.condition.text;
               var weathercode = 'http:'+data.current.condition.icon;
 
               document.getElementById("mytemp").innerHTML = temp;
-              document.getElementById("myweather2").innerHTML = weather2;
+              document.getElementById("myweatherX").innerHTML = weatherX;
+
 
               var img = document.createElement("img");
               img.src = weathercode;
               var src = document.getElementById("weathericon");
               src.appendChild(img);
 
+
+
+
+              var temp1=data.forecast.forecastday[1].hour[15].temp_c +" C";
+              var weather1 = data.forecast.forecastday[1].hour[15].condition.text;
+              var weathercode1 = 'http:'+data.forecast.forecastday[1].hour[15].condition.icon;
+
+              document.getElementById("plus1temp").innerHTML = temp1;
+              document.getElementById("plus1weather").innerHTML = weather1;
+
+              var img = document.createElement("img");
+              img.src = weathercode1;
+              var src = document.getElementById("weathericon1");
+              src.appendChild(img);
+
+
+              // var temp2=data.forecast.forecastday[2].hour[15].temp_c +" C";
+              // var weather2 = data.forecast.forecastday[2].hour[15].condition.text;
+              // var weathercode2 = 'http:'+data.forecast.forecastday[2].hour[15].condition.icon;
+              //
+              // document.getElementById("plus2temp").innerHTML = temp2;
+              // document.getElementById("plus2weather").innerHTML = weather2;
+              //
+              // var img = document.createElement("img");
+              // img.src = weathercode1;
+              // var src = document.getElementById("weathericon2");
+              // src.appendChild(img);
+
+
+
+
+
          console.log(temp);
-         console.log(weather2);
+         console.log(weatherX);
          })
 
           })
@@ -111,9 +144,70 @@
 
 
       <div id="testing123">
-        <p> Weather: <span id="myweather2"></span> <span id="weathericon"></span> </p>
+        <p> Weather: <span id="myweatherX"></span> <span id="weathericon"></span> </p>
         <p> Temperature: <span id="mytemp"></span></p>
       </div>
+
+      <div id="forcast">
+        <h3>+1</h>
+        <p> Weather: <span id="plus1weather"></span> <span id="weathericon1"></span> </p>
+        <p> Temperature: <span id="plus1temp"></span></p>
+
+        <!-- <h3>+2</h>
+        <p> Weather: <span id="plus2weather"></span> <span id="plus2icon"></span> </p>
+        <p> Temperature: <span id="plus2temp"></span></p>
+
+        <h3>+3</h>
+        <p> Weather: <span id="plus3weather"></span> <span id="plus3icon"></span> </p>
+        <p> Temperature: <span id="plus3temp"></span></p>
+
+        <h3>+4</h>
+        <p> Weather: <span id="plus4weather"></span> <span id="plus4icon"></span> </p>
+        <p> Temperature: <span id="plus4temp"></span></p>
+
+        <h3>+5</h>
+        <p> Weather: <span id="plus5weather"></span> <span id="plus5icon"></span> </p>
+        <p> Temperature: <span id="plus5temp"></span></p>
+
+        <h3>+6</h>
+        <p> Weather: <span id="plus6weather"></span> <span id="plus6icon"></span> </p>
+        <p> Temperature: <span id="plus6temp"></span></p>
+
+        <h3>+7</h>
+        <p> Weather: <span id="plus5weather"></span> <span id="plus7icon"></span> </p>
+        <p> Temperature: <span id="plus7temp"></span></p>
+
+        <h3>+8</h>
+        <p> Weather: <span id="plus8weather"></span> <span id="plus8icon"></span> </p>
+        <p> Temperature: <span id="plus8temp"></span></p> -->
+
+      </div>
+
+      <table id="weatherforecast"  cellspacing="0" width="100%">
+        <thead>
+        <tr>
+          <th>Current</th>
+          <th>Tomorrow</th>
+          <th>+2</th>
+          <th>+3</th>
+          <th>+4</th>
+          <th>+5</th>
+          <th>+6</th>
+          <th>+7</th>
+          <th>+8</th>
+          <th>+9</th>
+          <th>+10</th>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        </thead>
+
+      </table>
+
+
+
 
     </div>
 
