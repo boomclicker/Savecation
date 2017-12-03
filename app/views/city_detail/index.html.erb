@@ -6,47 +6,48 @@
       <h1><%= @city_name %></h1>
       <hr>
       <p>Listing all the attractions for <%= @city_name %></p>
+    </div>
   </div>
 </header>
 
-<table class = "table">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Read More</th>
-        </tr>
-    </thead>
-    <tbody id="content">
-    </tbody>
+<table class="table">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Read More</th>
+  </tr>
+  </thead>
+  <tbody id="content">
+  </tbody>
 </table>
 
 <script>
 
- function gContent(){
-	function Get(yourUrl){
-    var Httpreq = new XMLHttpRequest(); // a new request
-    Httpreq.open("GET",yourUrl,false);
-    Httpreq.send(null);
-    return Httpreq.responseText;          
-	}
-	
-	var json_obj = JSON.parse(Get("https://pure-coast-27115.herokuapp.com/data/city/" + <%= @city_id %>));
-	console.log(json_obj);
+    function gContent() {
+        function Get(yourUrl) {
+            var Httpreq = new XMLHttpRequest(); // a new request
+            Httpreq.open("GET", yourUrl, false);
+            Httpreq.send(null);
+            return Httpreq.responseText;
+        }
 
-	data = json_obj["data"];
+        var json_obj = JSON.parse(Get("https://pure-coast-27115.herokuapp.com/data/city/" + <%= @city_id %>));
+        console.log(json_obj);
 
-    for(var i = 0; i < data.length; i++){
-        var y = "https://pure-coast-27115.herokuapp.com/attraction_detail/" + data[i].id;
-    	var x = "<tr><td>" + (i+1) + "</td><td>" + data[i].title + "</td><td> $" + data[i].price + "</td>" + "<td>"
-          + "<a href = " + y + "> Read more </a>"
-          + "</td> </tr>";
-    	console.log(x);
-    	$("#content").append(x);
+        data = json_obj["data"];
+
+        for (var i = 0; i < data.length; i++) {
+            var y = "https://pure-coast-27115.herokuapp.com/attraction_detail/" + data[i].id;
+            var x = "<tr><td>" + (i + 1) + "</td><td>" + data[i].title + "</td><td> $" + data[i].price + "</td>" + "<td>"
+                + "<a href = " + y + "> Read more </a>"
+                + "</td> </tr>";
+            console.log(x);
+            $("#content").append(x);
+        }
+
     }
-
-}
 </script>
 
-<script> window.onload=gContent(); </script>
+<script> window.onload = gContent(); </script>
