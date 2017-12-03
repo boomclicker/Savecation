@@ -4,6 +4,24 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+#tableHolder{
+
+
+
+}
+
+#weatherforecast{
+  align-self: center;
+  table-layout:fixed;
+  width: 1500px;
+  background-color: #34282C;
+  border-radius: 25px;
+}
+
+.forecastCell{
+  text-align: left;
+}
+
 #city_detail_css{
     }
 
