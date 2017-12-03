@@ -1,49 +1,52 @@
-<%= render 'creatives/navbar' %>
-
 <header id="header_city_omg">
   <div class="header-content">
     <div class="header-content-inner" id="title_cities">
-      <h1><%= @title %></h1>
+      <h1>Vancouver 2-Hour Private Tour</h1>
       <hr>
-      <p>Located in <%= @city_name %></p>
+      <p>Located in Vancouver</p>
+      <a onclick="goBack()" class="btn btn-primary btn-xl page-scroll">Back</a>
+    </div>
+    <br>
+    <div class="column" style="background-color:black;">
+      <p id="img_city"></p>
+    </div>
+    <div class="column" style="background-color:black;">
+      <p class="leftalign" id="info"></p>
+    </div>
+    <div class="column" style="background-color:black;">
+      <p  id="map"></p>
+    </div>
   </div>
+
 </header>
-<style>
-#map{
-  height:400px;
-  width: 100%;
-}
-</style>
-<h3>Description of <%= @title %></h3>
-<p id="img_city"></p>
-<p id="info"></p>
-<p id="map"></p>
+
+
 <script>
+    function goBack() {
+        window.history.back();
+    }
 
- function gContent(){
-  function Get(yourUrl){
-    var Httpreq = new XMLHttpRequest(); // a new request
-    Httpreq.open("GET",yourUrl,false);
-    Httpreq.send(null);
-    return Httpreq.responseText;          
-  }
-  
-  var json_obj = JSON.parse(Get("https://pure-coast-27115.herokuapp.com/data/attraction/" + <%= @attraction_id %>));
-  console.log(json_obj);
+    function gContent() {
+        function Get(yourUrl) {
+            var Httpreq = new XMLHttpRequest(); // a new request
+            Httpreq.open("GET", yourUrl, false);
+            Httpreq.send(null);
+            return Httpreq.responseText;
+        }
 
-  data = json_obj["data"];
+        var json_obj = JSON.parse(Get("https://pure-coast-27115.herokuapp.com/data/attraction/" + 139));
+        console.log(json_obj);
 
-     var y = "<img src=" + "\"" + data[0].photoURL + "\""+ ">";
-     console.log(y);
-//     $("#img_city").append(y);
-     document.getElementById("img_city").innerHTML= y;
+        data = json_obj["data"];
 
-     var x = "<p>" + data[0].description + "</p>";
-     console.log(x);
-//     $("#info").append(x);
-     document.getElementById("info").innerHTML= x;   
-}
-function initmap() {
+        document.getElementById("img_city").innerHTML = "<img src=" + "\"" + data[0].photoURL + "\"" + ">";
+        document.getElementById("info").innerHTML = "<p>" + data[0].description + "</p>";
+    }
+
+    window.onload = gContent();
+   
+
+   function initmap() {
      function GGet(yourUrl){
     var Httpreq = new XMLHttpRequest(); // a new request
     Httpreq.open("GET",yourUrl,false);
@@ -86,5 +89,4 @@ function initmap() {
         });
       }      
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=  AIzaSyAejXqKMm9TW3ndSIihQ832ovr9SfEOmS8&callback=initmap"></script>
-<script> window.onload=gContent(); </script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAejXqKMm9TW3ndSIihQ832ovr9SfEOmS8&callback=initmap"></script>
