@@ -178,6 +178,87 @@
                               src.appendChild(img);
 
 
+                              // to be able to change from numbers to text
+                              var month = new Array();
+                              month[0]= "January";
+                              month[1]= "February";
+                              month[2]= "March";
+                              month[3]= "April";
+                              month[4]= "May";
+                              month[5]= "June";
+                              month[6]= "July";
+                              month[7]= "August";
+                              month[8]= "September";
+                              month[9]= "October";
+                              month[10] = "September";
+                              month[11] = "December";
+
+        var d = new Date();
+
+        var d1 = new Date();
+        d1.setDate(d.getDate()+1);
+        var date1text = month[d1.getMonth()] + " " + d1.getDate();
+        document.getElementById("date1").innerHTML = date1text;
+
+        var d2 = new Date();
+        d2.setDate(d.getDate()+2);
+        var date2text = month[d2.getMonth()] + " " + d2.getDate();
+        document.getElementById("date2").innerHTML = date2text;
+
+        var d3 = new Date();
+        d3.setDate(d.getDate()+3);
+        var date3text = month[d3.getMonth()] + " " + d3.getDate();
+        document.getElementById("date3").innerHTML = date3text;
+
+        var d4 = new Date();
+        d4.setDate(d.getDate()+4);
+        var date4text = month[d4.getMonth()] + " " + d4.getDate();
+        document.getElementById("date4").innerHTML = date4text;
+
+        var d5 = new Date();
+        d5.setDate(d.getDate()+5);
+        var date5text = month[d5.getMonth()] + " " + d5.getDate();
+        document.getElementById("date5").innerHTML = date5text;
+
+        var d6 = new Date();
+        d6.setDate(d.getDate()+6);
+        var date6text = month[d6.getMonth()] + " " + d6.getDate();
+        document.getElementById("date6").innerHTML = date6text;
+
+        var d7 = new Date();
+        d7.setDate(d.getDate()+7);
+        var date7text = month[d7.getMonth()] + " " + d7.getDate();
+        document.getElementById("date7").innerHTML = date7text;
+
+
+
+        var d8 = new Date();
+        d8.setDate(d.getDate()+8);
+        var date8text = month[d8.getMonth()] + " " + d8.getDate();
+        document.getElementById("date8").innerHTML = date8text;
+
+        var d9 = new Date();
+        d9.setDate(d.getDate()+9);
+        var date9text = month[d9.getMonth()] + " " + d9.getDate();
+        document.getElementById("date9").innerHTML = date9text;
+
+
+
+        var month = new Array();
+        month[0]= "January";
+        month[1]= "February";
+        month[2]= "March";
+        month[3]= "April";
+        month[4]= "May";
+        month[5]= "June";
+        month[6]= "July";
+        month[7]= "August";
+        month[8]= "September";
+        month[9]= "October";
+        month[10] = "September";
+        month[11] = "December";
+
+        var monthText = month[d.getMonth()];
 
          console.log(temp);
          console.log(weatherX);
@@ -249,17 +330,16 @@
         <thead>
         <tr>
           <th>Current</th>
-          <th>Tomorrow</th>
-          <th>+2</th>
-          <th>+3</th>
-          <th>+4</th>
-          <th>+5</th>
-          <th>+6</th>
-          <th>+7</th>
-          <th>+8</th>
-          <th>+9</th>
+          <th><span id=date1></span></th>
+          <th><span id=date2></span></th>
+          <th><span id=date3></span></th>
+          <th><span id=date4></span></th>
+          <th><span id=date5></span></th>
+          <th><span id=date6></span></th>
+          <th><span id=date7></span></th>
+          <th><span id=date8></span></th>
+          <th><span id=date9></span></th>
         </tr>
-
 
 
         <tr>
@@ -275,6 +355,7 @@
           <th><p><span id="mytemp9"></span></p></th>
 
         </tr>
+
 
         <tr>
           <th><p><span id="myweatherX"></span></p></th>
