@@ -17,7 +17,7 @@
 <h3>Description of <%= @title %></h3>
 <p id="img_city"></p>
 <p id="info"></p>
-<div id="map"></div>
+<p id="map"></p>
 <script>
 
  function gContent(){
@@ -70,7 +70,9 @@ function initmap() {
       }
 
       function geocodeAddress(geocoder, resultsMap) {
-        var address = data.title;
+        var A = data.title;
+        var B = A.replace(/[0-9]/g,'');
+        var address = B.substr(B.indexOf(" ")+1);
         geocoder.geocode({'address': address}, function(results, status) {
           if (status === 'OK') {
             resultsMap.setCenter(results[0].geometry.location);
