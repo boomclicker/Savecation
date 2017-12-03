@@ -7,6 +7,8 @@
 //= require creative/jquery.fittext
 //= require creative/wow.min
 //= require creative/creative
-// = require pls_jquery
+//= require pls_jquery
 //= require data_table
+//= require mapdata
+//= require worldmap
 //= require_self
