@@ -1,92 +1,82 @@
+<%= render 'creatives/navbar' %>
+
 <header id="header_city_omg">
   <div class="header-content">
     <div class="header-content-inner" id="title_cities">
-      <h1>Vancouver 2-Hour Private Tour</h1>
+      <h1><%= @title %></h1>
       <hr>
-      <p>Located in Vancouver</p>
+      <p>Located in <%= @city_name %></p>
       <a onclick="goBack()" class="btn btn-primary btn-xl page-scroll">Back</a>
     </div>
     <br>
+
     <div class="column" style="background-color:black;">
       <p id="img_city"></p>
     </div>
     <div class="column" style="background-color:black;">
       <p class="leftalign" id="info"></p>
     </div>
-    <div class="column" style="background-color:black;">
-      <p  id="map"></p>
-    </div>
+
+    <p id="map"></p>
   </div>
-
 </header>
-
 
 <script>
     function goBack() {
         window.history.back();
     }
 
+    function Get(yourUrl) {
+        var Httpreq = new XMLHttpRequest(); // a new request
+        Httpreq.open("GET", yourUrl, false);
+        Httpreq.send(null);
+        return Httpreq.responseText;
+    }
+
+    var json_obj = JSON.parse(Get("https://pure-coast-27115.herokuapp.com/data/attraction/" + 139));
+    console.log(json_obj);
+
+    data = json_obj["data"];
+
     function gContent() {
-        function Get(yourUrl) {
-            var Httpreq = new XMLHttpRequest(); // a new request
-            Httpreq.open("GET", yourUrl, false);
-            Httpreq.send(null);
-            return Httpreq.responseText;
-        }
-
-        var json_obj = JSON.parse(Get("https://pure-coast-27115.herokuapp.com/data/attraction/" + 139));
-        console.log(json_obj);
-
-        data = json_obj["data"];
-
         document.getElementById("img_city").innerHTML = "<img src=" + "\"" + data[0].photoURL + "\"" + ">";
         document.getElementById("info").innerHTML = "<p>" + data[0].description + "</p>";
     }
 
     window.onload = gContent();
-   
 
-   function initmap() {
-     function GGet(yourUrl){
-    var Httpreq = new XMLHttpRequest(); // a new request
-    Httpreq.open("GET",yourUrl,false);
-    Httpreq.send(null);
-    return Httpreq.responseText;          
-  }
-  
-  var json_obj = JSON.parse(GGet("https://pure-coast-27115.herokuapp.com/data/attraction/" + <%= @attraction_id %>));
-  console.log(json_obj);
 
-  data = json_obj["data"];
-     var op = {
-      zoom:8,
-      center:{lat:42.3601,lng:-71.0589}
-     }
-     var map= new 
-     google.maps.Map(document.getElementById('map'), op);
-     
-     var geocoder = new google.maps.Geocoder();
+    function initmap() {
+        var op = {
+            zoom: 8,
+            center: {lat: 42.3601, lng: -71.0589}
+        };
 
-        document.getElementById('map').addEventListener("mouseover", function() {
-          geocodeAddress(geocoder, map);
+        var map = new
+        google.maps.Map(document.getElementById('map'), op);
+
+        var geocoder = new google.maps.Geocoder();
+
+        document.getElementById('map').addEventListener("mouseover", function () {
+            geocodeAddress(geocoder, map);
         });
-      }
+    }
 
-      function geocodeAddress(geocoder, resultsMap) {
-        var A = data.title;
-        var B = A.replace(/[0-9]/g,'');
-        var address = B.substr(B.indexOf(" ")+1);
-        geocoder.geocode({'address': address}, function(results, status) {
-          if (status === 'OK') {
-            resultsMap.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-              map: resultsMap,
-              position: results[0].geometry.location
-            });
-          } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
+    function geocodeAddress(geocoder, resultsMap) {
+        var A = data[0].title;
+        var B = A.replace(/[0-9]/g, '');
+        var address = B.substr(B.indexOf(" ") + 1);
+        geocoder.geocode({'address': address}, function (results, status) {
+            if (status === 'OK') {
+                resultsMap.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: resultsMap,
+                    position: results[0].geometry.location
+                });
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
         });
-      }      
+    }
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAejXqKMm9TW3ndSIihQ832ovr9SfEOmS8&callback=initmap"></script>
