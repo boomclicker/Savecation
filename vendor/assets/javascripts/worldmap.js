@@ -1,3 +1,5 @@
+console.log("worldmap.js loaded");
+
 //Copyright 2010-2017 Simplemaps.com
 //html5worldmapv3.6
 //Use pursuant to license agreement at http://www.simplemaps.com/license
