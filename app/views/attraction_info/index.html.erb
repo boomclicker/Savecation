@@ -6,42 +6,75 @@
       <h1><%= @title %></h1>
       <hr>
       <p>Located in <%= @city_name %></p>
-      <a onclick="goBack()" class="btn btn-primary btn-xl page-scroll">Back</a>
-    </div>
-    <br>
-
-    <div class="column" style="background-color:black;">
-      <p id="img_city"></p>
-    </div>
-    <div class="column" style="background-color:black;">
-      <p class="leftalign" id="info"></p>
-    </div>
   </div>
-
 </header>
-
-
+<style>
+#map{
+  height:400px;
+  width: 100%;
+}
+</style>
+<h3>Description of <%= @title %></h3>
+<p id="img_city"></p>
+<p id="info"></p>
+<div id="map"></div>
 <script>
-    function goBack() {
-        window.history.back();
-    }
 
-    function gContent() {
-        function Get(yourUrl) {
-            var Httpreq = new XMLHttpRequest(); // a new request
-            Httpreq.open("GET", yourUrl, false);
-            Httpreq.send(null);
-            return Httpreq.responseText;
-        }
+ function gContent(){
+  function Get(yourUrl){
+    var Httpreq = new XMLHttpRequest(); // a new request
+    Httpreq.open("GET",yourUrl,false);
+    Httpreq.send(null);
+    return Httpreq.responseText;          
+  }
+  
+  var json_obj = JSON.parse(Get("https://pure-coast-27115.herokuapp.com/data/attraction/" + <%= @attraction_id %>));
+  console.log(json_obj);
 
-        var json_obj = JSON.parse(Get("https://pure-coast-27115.herokuapp.com/data/attraction/" + <%= @attraction_id %>));
-        console.log(json_obj);
+  data = json_obj["data"];
 
-        data = json_obj["data"];
+     var y = "<img src=" + "\"" + data[0].photoURL + "\""+ ">";
+     console.log(y);
+//     $("#img_city").append(y);
+     document.getElementById("img_city").innerHTML= y;
 
-        document.getElementById("img_city").innerHTML = "<img src=" + "\"" + data[0].photoURL + "\"" + ">";
-        document.getElementById("info").innerHTML = "<p>" + data[0].description + "</p>";
-    }
+     var x = "<p>" + data[0].description + "</p>";
+     console.log(x);
+//     $("#info").append(x);
+     document.getElementById("info").innerHTML= x;   
+function initmap() {
+     //var place="https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyCca9lpSGFOkA550bJfU7AgVuDzDHdGeCM"
+     
+     //var address=data.title
+     var op = {
+      zoom:8,
+      center:{lat:42.3601,lng:-71.0589}
+     }
+     var map= new 
+     google.maps.Map(document.getElementById('map'), op);
+     
+     var geocoder = new google.maps.Geocoder();
 
-    window.onload = gContent();
+        document.getElementById('map').addEventListener("mouseover", function() {
+          geocodeAddress(geocoder, map);
+        });
+      }
+
+      function geocodeAddress(geocoder, resultsMap) {
+        var address = data.title;
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+}      
 </script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key= AIzaSyBYaZm78UW52E-0pnBEaLYYO9mwKkmbTxU&callback=initmap"></script>
+<script> window.onload=gContent(); </script>
