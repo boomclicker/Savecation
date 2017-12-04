@@ -43,21 +43,20 @@
       </div>
 
       <div class="row">
-        <form>
-          <div class="input-group">
-            <input id="budget" type="number" class="form-control" name="budget" placeholder="Budget">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
-          </div>
-          <div class="input-group">
-            <input id="days" type="number" class="form-control" name="days" placeholder="Number of days for vacation">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
-          </div>
-          <br>
-          <button onclick="executeorder66()" type="submit" class="btn btn-success btn-lg">
-            <i class="fa fa-tasks"></i> Generate Schedule!
-          </button>
-          <p id="errorInForm"></p>
-        </form>
+        <div class="input-group">
+          <input id="budget" type="number" autocomplete="off" class="form-control" name="budget" placeholder="Budget">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
+        </div>
+        <div class="input-group">
+          <input id="days" type="number" autocomplete="off" class="form-control" name="days" placeholder="Number of days for vacation">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
+        </div>
+        <br>
+        <button onclick="executeorder66()" type="submit" class="btn btn-success btn-lg">
+          <i class="fa fa-tasks"></i> Generate Schedule!
+        </button>
+        <p id="errorInForm"></p>
+
       </div>
 
     </div>
@@ -102,13 +101,19 @@
         var budget = document.getElementById('budget').value;
         var days = document.getElementById('days').value;
 
+        var ok = true;
+
         if ((budget < 50) || (budget > 1000)) {
             document.getElementById('errorInForm').innerHTML = 'Please enter budget between $50 and $1000 only!';
+            ok = false;
         }
 
         if ((days < 0) || (days > 10)) {
             document.getElementById('errorInForm').innerHTML = 'Please enter days between 1 and 10 only!';
-        } else {
+            ok = false;
+        }
+
+        if (ok === true) {
             location.href = "https://pure-coast-27115.herokuapp.com/schedules/city/" + <%= @city_id %> +"/days/" + days + "/budget/" + budget;
         }
     }
