@@ -41,26 +41,25 @@
           <h3>News</h3>
         </div>
       </div>
+
       <div class="row">
-        <div class="col-md-12">
-          Budget &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <input type="number" autocomplete="off" id="budget" placeholder="$$$" min="0" max="1000">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          Number of Days <input type="number" autocomplete="off" id="days" min="0" max="10" placeholder="#">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
+        <form>
+          <div class="input-group">
+            <input id="budget" type="number" class="form-control" name="budget" placeholder="Budget">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
+          </div>
+          <div class="input-group">
+            <input id="days" type="number" class="form-control" name="days" placeholder="Number of days for vacation">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
+          </div>
           <br>
           <button onclick="executeorder66()" type="submit" class="btn btn-success btn-lg">
             <i class="fa fa-tasks"></i> Generate Schedule!
           </button>
           <p id="errorInForm"></p>
-        </div>
+        </form>
       </div>
+
     </div>
   </div>
 </div>
