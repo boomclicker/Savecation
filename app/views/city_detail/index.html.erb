@@ -43,12 +43,13 @@
       </div>
 
       <div class="row">
+
         <div class="input-group">
-          <input id="budget" type="number" autocomplete="off" class="form-control" name="budget" placeholder="Budget">
+          <input id="budget" type="number" class="form-control" name="budget" placeholder="Budget">
           <span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
         </div>
         <div class="input-group">
-          <input id="days" type="number" autocomplete="off" class="form-control" name="days" placeholder="Number of days for vacation">
+          <input id="days" type="number" class="form-control" name="days" placeholder="Number of days for vacation">
           <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
         </div>
         <br>
@@ -101,20 +102,15 @@
         var budget = document.getElementById('budget').value;
         var days = document.getElementById('days').value;
 
-        var ok = true;
-
         if ((budget < 50) || (budget > 1000)) {
             document.getElementById('errorInForm').innerHTML = 'Please enter budget between $50 and $1000 only!';
-            ok = false;
         }
 
         if ((days < 0) || (days > 10)) {
             document.getElementById('errorInForm').innerHTML = 'Please enter days between 1 and 10 only!';
-            ok = false;
-        }
-
-        if (ok === true) {
+        } else {
             location.href = "https://pure-coast-27115.herokuapp.com/schedules/city/" + <%= @city_id %> +"/days/" + days + "/budget/" + budget;
+//            location.href = "http://localhost:5000/schedules/city/" + <%= @city_id %> +"/days/" + days + "/budget/" + budget;
         }
     }
 </script>

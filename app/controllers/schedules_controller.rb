@@ -13,13 +13,21 @@ class SchedulesController < ApplicationController
 
     @result = JSON.load(open(@url).read)
 
-    #Debug
-    @result['data'].each do |key, array|
-      puts "#{key}-----"
-      array.each do |attraction|
-        puts attraction['id'], attraction['title'], attraction['price']
-      end
+    @new_schedule = Schedule.new(body: @result, user_id: current_user.id)
+
+    if @new_schedule.save
+      puts 'Schedule id = ' + @new_schedule.id.to_s
+    else
+      puts 'Couldn\'t save schedule'
     end
+
+    #Debug
+    # @result['data'].each do |key, array|
+    #   puts "#{key}-----"
+    #   array.each do |attraction|
+    #     puts attraction['id'], attraction['title'], attraction['price']
+    #   end
+    # end
 
     @total_price = @result['total']
   end
