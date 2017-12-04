@@ -6,42 +6,23 @@
   <p class="text-center">Showing profile page for
     <mark class="bg-primary"><%= @user.username %></mark>
   </p>
+  <p class="text-center">
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
 </div>
 
 <div class="container">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2 text-center">
-
-      <p>
-        <strong>Email:</strong>
-        <%= @user.email %>
-      </p>
-
-
-      <% if not @schedules.nil? %>
-          <h1>List of schedules</h1>
-          <%= render @user.schedules %>
+    <div class="col-md-8">
+      <% unless @schedules.empty? %>
+          <h1>Schedules</h1>
+          <div class="list-group">
+            <%= render @user.schedules %>
+          </div>
+      <% else %>
+          <h3>No schedules have been created so far..</h3>
       <% end %>
-
-      <% if @user.isAdmin %>
-
-          <h3>ADMIN</h3>
-          <table>
-            <tr>
-              <td>Username</td>
-
-              <td>Email</td>
-            </tr>
-            <% @users.each do |user| %>
-                <tr>
-                  <td><%= user.username %></td>
-                  <td><%= user.email %></td>
-                </tr>
-            <% end %>
-          </table>
-      <% end %>
-
-
     </div>
   </div>
 </div>

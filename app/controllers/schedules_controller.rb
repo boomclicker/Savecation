@@ -21,14 +21,6 @@ class SchedulesController < ApplicationController
       puts 'Couldn\'t save schedule'
     end
 
-    #Debug
-    # @result['data'].each do |key, array|
-    #   puts "#{key}-----"
-    #   array.each do |attraction|
-    #     puts attraction['id'], attraction['title'], attraction['price']
-    #   end
-    # end
-
     @total_price = @result['total']
   end
 
@@ -38,4 +30,20 @@ class SchedulesController < ApplicationController
     redirect_to current_user
   end
 
+  def show
+    @schedule = Schedule.find(params[:id])
+
+    @schedule_body = Schedule.find(params[:id]).body
+
+    @schedule_body.gsub!(/([{,]\s*):([^>\s]+)\s*=>/, '\1"\2"=>')
+    @schedule_body.gsub!(/([{,]\s*)([0-9]+\.?[0-9]*)\s*=>/, '\1"\2"=>')
+    @schedule_body.gsub!(/([{,]\s*)(".+?"|[0-9]+\.?[0-9]*)\s*=>\s*:([^,}\s]+\s*)/, '\1\2=>"\3"')
+    @schedule_body.gsub!(/([\[,]\s*):([^,\]\s]+)/, '\1"\2"')
+    @schedule_body.gsub!(/([{,]\s*)(".+?"|[0-9]+\.?[0-9]*)\s*=>/, '\1\2:')
+
+    @attraction_base_url = 'http://pure-coast-27115.herokuapp.com/attraction_detail/'
+    @result = JSON.parse(@schedule_body)
+    @total_price = @result['total']
+    @city_name = City.find(@result['city_id']).name
+  end
 end
