@@ -5,21 +5,39 @@
  */
 
 
+ #weatherforecast{
+   align-self: center;
+   table-layout:fixed;
+   width: 400px;
+   background-color: #34282C;
+   border-radius: 25px;
+   padding:20px;
+ }
 
-#weatherforecast{
-  align-self: center;
-  table-layout:fixed;
-  width: 1500px;
-  background-color: #34282C;
-  border-radius: 25px;
+
+.forecastCelltemp{ //this is the temperature row
+  text-align:center;
+  color: #ececec;
 }
 
-.forecastCell{
-  text-align: left;
+.forecastCell{ //date row
+  text-align: center;
+  padding-left:5px;
+  padding-right:5px;
+  font-size: 10px;
+//  align-items: center;
+  color: #ececec;
+  padding-top: 20px;
 }
 
-#city_detail_css{
-    }
+
+
+.iconw{ //icon row
+  text-align: center;
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
+
 
 header2{
   height:0;
@@ -326,7 +344,6 @@ header .header-content .header-content-inner p {
   margin-bottom: 50px;
   font-size: 16px;
   font-weight: 700;
-  // color: rgba(255,255,255,.7);
   color: white;
 
 }
