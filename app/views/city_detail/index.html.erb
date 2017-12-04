@@ -107,7 +107,7 @@
         if ((days < 0) || (days > 10)) {
             document.getElementById('errorInForm').innerHTML = 'Please enter days between 1 and 10 only!';
         } else {
-            console.log(budget, days);
+            location.href = "https://pure-coast-27115.herokuapp.com/schedules/city/" + <%= @city_id %> +"/days/" + days + "/budget/" + budget;
         }
     }
 </script>
