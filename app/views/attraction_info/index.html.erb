@@ -1,26 +1,39 @@
 <%= render 'creatives/navbar' %>
 
-<header id="header_city_omg">
-  <div class="header-content">
-    <div class="header-content-inner" id="title_cities">
-      <h1><%= @title %></h1>
-      <hr>
-      <p>Located in <%= @city_name %></p>
-      <a onclick="goBack()" class="btn btn-primary btn-xl page-scroll">Back</a>
-    </div>
-    <br>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <div class="column" style="background-color:black;">
-      <p id="img_city"></p>
-    </div>
-    <div class="column" style="background-color:black;">
-      <p class="leftalign" id="info"></p>
-    </div>
+<div class="container">
+  <h1 class="text-center"><%= @title %> - $<%= @price %></h1>
+  <hr>
+  <p class="text-center">Location in
+    <mark class="bg-primary"><%= @city_name %></mark>
+  </p>
+</div>
 
-    <div id="map">
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="column">
+        <p id="img_city"></p>
+      </div>
+      <div class="column">
+        <p class="leftalign" id="info"></p>
+      </div>
     </div>
   </div>
-</header>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2" style="height: 400px; margin-bottom: 20px">
+      <iframe width="100%" height="100%" src="//www.google.com/maps/embed/v1/place?q=<%= @title %>
+      &zoom=17
+      &key=AIzaSyBdHe-dzBXY0NyfgJotSAV_x08ElhZIk7c">
+      </iframe>
+    </div>
+  </div>
+</div>
+</div>
 
 <script>
     function goBack() {
@@ -45,4 +58,6 @@
     }
 
     window.onload = gContent();
+
+    $('.collapse').collapse();
 </script>
