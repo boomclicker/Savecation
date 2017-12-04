@@ -12,35 +12,54 @@
 </header>
 
 <div class="row">
+  <div class="col-md-8">
+    <section id="show_list">
+      <table id="table_data" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+          <th>Title</th>
+          <th>Price</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+          <th>Title</th>
+          <th>Price</th>
+          <th>Description</th>
+        </tr>
+        </tfoot>
+      </table>
+    </section>
+  </div>
 
-<div class="col-md-8">
-<section id="show_list">
-  <table id="table_data" class="table table-striped table-bordered" cellspacing="0" width="100%">
-    <thead>
-    <tr>
-      <th>Title</th>
-      <th>Price</th>
-      <th>Description</th>
-    </tr>
-    </thead>
-    <tfoot>
-    <tr>
-      <th>Title</th>
-      <th>Price</th>
-      <th>Description</th>
-    </tr>
-    </tfoot>
-  </table>
-</section>
-</div>
-
-<div class="col-md-4">
-  <br><br><br><br><br><br><br>
-  <center><font size="+2">News</center></font>
-  <br><br><br><br><br><br><br><br>
-  <br><br><br><br><br><br><br>
-  <center><font size="+2">Weather</center></font>
-</div>
+  <div class="col-md-4">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>News</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        Budget &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="number" autocomplete="off" id="budget" placeholder="$$$" min="0" max="1000">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        Number of Days <input type="number" autocomplete="off" id="days" min="0" max="10" placeholder="#">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <br>
+        <button onclick="executeorder66()" type="submit" class="btn btn-success btn-lg">
+          <i class="fa fa-tasks"></i> Generate Schedule!
+        </button>
+        <p id="errorInForm"></p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -73,4 +92,22 @@
         })
         ;
     });
+</script>
+
+<script type="text/javascript">
+
+    function executeorder66() {
+        var budget = document.getElementById('budget').value;
+        var days = document.getElementById('days').value;
+
+        if ((budget < 50) || (budget > 1000)) {
+            document.getElementById('errorInForm').innerHTML = 'Please enter budget between $50 and $1000 only!';
+        }
+
+        if ((days < 0) || (days > 10)) {
+            document.getElementById('errorInForm').innerHTML = 'Please enter days between 1 and 10 only!';
+        } else {
+            location.href = "https://pure-coast-27115.herokuapp.com/schedules/city/" + <%= @city_id %> +"/days/" + days + "/budget/" + budget;
+        }
+    }
 </script>
