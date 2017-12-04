@@ -102,15 +102,20 @@
         var budget = document.getElementById('budget').value;
         var days = document.getElementById('days').value;
 
+        var ok = true;
+
         if ((budget < 50) || (budget > 1000)) {
             document.getElementById('errorInForm').innerHTML = 'Please enter budget between $50 and $1000 only!';
+            ok = false;
         }
 
         if ((days < 0) || (days > 10)) {
             document.getElementById('errorInForm').innerHTML = 'Please enter days between 1 and 10 only!';
-        } else {
+            ok = false;
+        }
+
+        if (ok === true){
             location.href = "https://pure-coast-27115.herokuapp.com/schedules/city/" + <%= @city_id %> +"/days/" + days + "/budget/" + budget;
-//            location.href = "http://localhost:5000/schedules/city/" + <%= @city_id %> +"/days/" + days + "/budget/" + budget;
         }
     }
 </script>
