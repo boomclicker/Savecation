@@ -29,6 +29,13 @@
       <p class="text-right">Budget? <kbd>$<%= @budget %></kbd></p>
       <p class="text-right">Days? <kbd><%= @days %></kbd></p>
       <p class="text-right">Created schedule ID? <kbd><%= @new_schedule.id.to_s %></kbd></p>
+      <button onclick="goBack()" type="button" class="btn btn-warning pull-right">Go back</button>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+    function goBack() {
+        window.history.back();
+    }
+</script>
