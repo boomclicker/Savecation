@@ -16,7 +16,7 @@ class GenerateScheduleController < ApplicationController
       i = 0
       total = 0
       while i < days
-        key = 'day'+(i+1).to_s
+        key = 'Day '+(i+1).to_s
         rand_number = rand(1..$max)
         day_list = rand_number.times.map {attractions_list.sample}
         ids_in_day_list = day_list.map {|x| x[:id]}
@@ -58,7 +58,7 @@ class GenerateScheduleController < ApplicationController
       total_loops = 0
       while i < days
         count_loop += 1
-        key = 'day'+(i+1).to_s
+        key = 'Day '+(i+1).to_s
         rand_number = rand(1..$max)
         day_list = rand_number.times.map {attractions_list.sample}
         ids_in_day_list = day_list.map {|x| x[:id]}
