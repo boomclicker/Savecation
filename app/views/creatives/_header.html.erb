@@ -12,7 +12,7 @@
             <i class="fa fa-search"></i>
           </button>
         </div>
-        <p id="errorm"></p>
+        <kbd class="bg-dark" id="errorm"></kbd>
       </div>
 
 
@@ -44,18 +44,26 @@
 
           function search() {
               var input = document.getElementById("search_term").value.toLowerCase();
+              console.log(input);
               var keys = Object.keys(dict);
+              var found = false;
               keys.forEach(function (key) {
                   if (key === input) {
+                      found = true;
+                      console.log("found in key input =" + found);
                       window.location = dict[key];
                   }
-                  else{
-                    document.getElementById("errorm").innerHTML="ERROR: City spelled wrong or not yet supported";
-                  }
+                  document.getElementById("errorm").innerHTML = "";
               });
+
+              console.log("found =" + found);
+              if (found === false) {
+                  document.getElementById("errorm").innerHTML = "City spelled wrong or not yet supported";
+              }
           }
 
-          $("#search_term").on('keydown', function (e) {
+          $("#search_term").on('keyup', function (e) {
+              document.getElementById("errorm").innerHTML = "";
               if (e.keyCode === 13) {
                   search();
               }
@@ -72,7 +80,4 @@
     </div>
 
   </div>
-  <script type="text/javascript" src="mapdata.js"></script>
-<script  type="text/javascript" src="worldmap.js"></script>
-<div id="map"></div>
 </header>
