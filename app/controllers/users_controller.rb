@@ -19,6 +19,9 @@ class UsersController < ApplicationController
     if @user.isAdmin
       @users = User.all
     end
+
+    @schedules = @user.schedules
+    puts @schedules
   end
 
   private

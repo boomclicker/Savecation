@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   end
   resources :cities
 
+  resources :schedules
+
   # cities api routes
   get 'data/cities'
   get 'data/city/:id', to: 'data#city'
@@ -30,6 +32,7 @@ Rails.application.routes.draw do
 
   # schedules routes
   get 'schedules/city/:city_id/days/:days/budget/:budget', to: 'schedules#index'
+  get 'schedules/:id', to: 'schedules#show'
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
