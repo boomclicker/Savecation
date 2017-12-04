@@ -1,18 +1,18 @@
 <%= render 'creatives/navbar' %>
-<header>
-  <div class="header-content">
-    <div class="header-content-inner">
-<% if @user&&@user.isAdmin %>
-<h1>triplace</h1>
-<h2>import triplaces</h2>
-<%= form_tag import_triplaces_path, multipart: true do %>
-<center><%= file_field_tag :file %></center>
-<%= submit_tag "Import" %>
-<% end %>
-<% else %>
-<center><strong><font size="6">sorry, you are not admin</font></strong></center>
-<%= link_to "back", root_path %>
-<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <% if @user&&@user.isAdmin %>
+          <h2>Import Attractions</h2>
+          <%= form_tag import_triplaces_path, multipart: true do %>
+              <%= file_field_tag :file %>
+              <%= submit_tag "Import" %>
+          <% end %>
+      <% else %>
+          <strong>Sorry, you are not admin. You can't import attractions.</strong>
+          <%= link_to "back", root_path %>
+      <% end %>
+    </div>
+  </div>
 </div>
-</div>
-</header>
