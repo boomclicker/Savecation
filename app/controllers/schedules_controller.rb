@@ -31,4 +31,11 @@ class SchedulesController < ApplicationController
 
     @total_price = @result['total']
   end
+
+  def destroy
+    Schedule.find(params[:id]).destroy
+    flash[:success] = 'Schedule deleted'
+    redirect_to current_user
+  end
+
 end

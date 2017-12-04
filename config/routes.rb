@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   end
   resources :cities
 
+  resources :schedules
+
   # cities api routes
   get 'data/cities'
   get 'data/city/:id', to: 'data#city'
