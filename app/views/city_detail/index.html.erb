@@ -36,12 +36,6 @@
     </div>
 
     <div class="col-md-4">
-      <!--<div class="row">-->
-        <!--<div class="col-md-12">-->
-          <!--<h3>News</h3>-->
-        <!--</div>-->
-      <!--</div>-->
-
       <div class="row">
         <h3>Weather</h3>
         <table id="weatherforecast" width="100%">
@@ -105,26 +99,28 @@
 
       <div class="row">
         <h3>Schedule</h3>
+        <% if current_user.nil? %>
+            <h4>Please log in to create a schedule...</h4>
+        <% else %>
+            <div class="input-group">
+              <input id="budget" type="number" autocomplete="off" class="form-control" name="budget" placeholder="Budget"><span class="input-group-addon"><i class="fa fa-fw  fa-usd" aria-hidden="true"></i></span>
+            </div>
+            <div class="input-group">
+              <input id="days" type="number" autocomplete="off" class="form-control" name="days" placeholder="Number of days for vacation"><span class="input-group-addon"><i class="fa fa-fw fa-calendar-plus-o" aria-hidden="true"></i></span>
+            </div>
+            <br>
 
-        <div class="input-group">
-          <input id="budget" type="number" autocomplete="off" class="form-control" name="budget" placeholder="Budget"><span class="input-group-addon"><i class="fa fa-fw  fa-usd" aria-hidden="true"></i></span>
-        </div>
-        <div class="input-group">
-          <input id="days" type="number" autocomplete="off" class="form-control" name="days" placeholder="Number of days for vacation"><span class="input-group-addon"><i class="fa fa-fw fa-calendar-plus-o" aria-hidden="true"></i></span>
-        </div>
-        <br>
-        <button onclick="executeorder66()" type="submit" class="btn btn-success btn-group-justified">
-          Generate Schedule
-        </button>
-        <p id="errorInForm"></p>
-
+            <button onclick="executeorder66()" type="submit" class="btn btn-success btn-group-justified">Generate
+              Schedule
+            </button>
+            <p id="errorInForm"></p>
+        <% end %>
       </div>
-
     </div>
   </div>
 </div>
 
-<script>
+<script type="text/javascript">
     $(document).ready(function () {
         $('#table_data').DataTable({
             "processing": true,
@@ -157,15 +153,13 @@
 </script>
 
 <script type="text/javascript">
-
     function executeorder66() {
         var budget = document.getElementById('budget').value;
         var days = document.getElementById('days').value;
 
         var ok = true;
-
         if ((budget < 50) || (budget > 1000)) {
-            document.getElementById('errorInForm').innerHTML = 'Please enter budget between $50 and $1000 only!';
+            document.getElementById('errorInForm').innerHTML = 'Please enter a budget between $50 and $1000 only!';
             ok = false;
         }
 
