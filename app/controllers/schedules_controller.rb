@@ -4,6 +4,7 @@ class SchedulesController < ApplicationController
 
   def index
     city_id = params[:city_id]
+    @city_name = City.find(id=city_id).name
     days = params[:days]
     budget = params[:budget]
 
