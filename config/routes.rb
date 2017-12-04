@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   get 'generate_schedule/city/:city_id/days/:days', to: 'generate_schedule#no_budget'
   get 'generate_schedule/city/:city_id/days/:days/budget/:budget', to: 'generate_schedule#budget'
 
+  # schedules routes
+  get 'schedules/city/:city_id/days/:days/budget/:budget', to: 'schedules#index'
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'

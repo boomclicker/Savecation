@@ -1,0 +1,10 @@
+<div class="list-group">
+  <% @result['data'].each do |key, array| %>
+      <h3><%= "#{key}" %></h3>
+      <% array.each do |attraction| %>
+          <a href="<%= @attraction_base_url %><%= attraction['id'] %>" class="list-group-item"><%= attraction['title'] %> <span class="badge">$<%= attraction['price'] %></span></a>
+      <% end %>
+  <% end %>
+</div>
+
+<h3>$<%= @total_price %></h3>
