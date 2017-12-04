@@ -5,5 +5,6 @@ class AttractionInfoController < ApplicationController
     @title = attraction.title
     @city_name = City.find(id=attraction.city_id).name
     @price = attraction.price
+    @src = "//www.google.com/maps/embed/v1/place?q=" + @title + "&zoom=17&key=AIzaSyBdHe-dzBXY0NyfgJotSAV_x08ElhZIk7c"
   end
 end
