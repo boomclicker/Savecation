@@ -11,52 +11,55 @@
   </div>
 </header>
 
-<div class="row">
-  <div class="col-md-8">
-    <section id="show_list">
-      <table id="table_data" class="table table-striped table-bordered" cellspacing="0" width="100%">
-        <thead>
-        <tr>
-          <th>Title</th>
-          <th>Price</th>
-          <th>Description</th>
-        </tr>
-        </thead>
-        <tfoot>
-        <tr>
-          <th>Title</th>
-          <th>Price</th>
-          <th>Description</th>
-        </tr>
-        </tfoot>
-      </table>
-    </section>
-  </div>
+<div class="container">
 
-  <div class="col-md-4">
-    <div class="row">
-      <div class="col-md-12">
-        <h3>News</h3>
-      </div>
+  <div class="row">
+    <div class="col-md-8">
+      <section id="show_list">
+        <table id="table_data" class="table table-striped table-bordered" cellspacing="0" width="100%">
+          <thead>
+          <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Description</th>
+          </tr>
+          </thead>
+          <tfoot>
+          <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Description</th>
+          </tr>
+          </tfoot>
+        </table>
+      </section>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        Budget &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="number" autocomplete="off" id="budget" placeholder="$$$" min="0" max="1000">
+
+    <div class="col-md-4">
+      <div class="row">
+        <div class="col-md-12">
+          <h3>News</h3>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        Number of Days <input type="number" autocomplete="off" id="days" min="0" max="10" placeholder="#">
+      <div class="row">
+        <div class="col-md-12">
+          Budget &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="number" autocomplete="off" id="budget" placeholder="$$$" min="0" max="1000">
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <br>
-        <button onclick="executeorder66()" type="submit" class="btn btn-success btn-lg">
-          <i class="fa fa-tasks"></i> Generate Schedule!
-        </button>
-        <p id="errorInForm"></p>
+      <div class="row">
+        <div class="col-md-12">
+          Number of Days <input type="number" autocomplete="off" id="days" min="0" max="10" placeholder="#">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <br>
+          <button onclick="executeorder66()" type="submit" class="btn btn-success btn-lg">
+            <i class="fa fa-tasks"></i> Generate Schedule!
+          </button>
+          <p id="errorInForm"></p>
+        </div>
       </div>
     </div>
   </div>
