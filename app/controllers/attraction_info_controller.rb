@@ -4,5 +4,6 @@ class AttractionInfoController < ApplicationController
     attraction = Triplace.find(id=params[:id])
     @title = attraction.title
     @city_name = City.find(id=attraction.city_id).name
+    @price = attraction.price
   end
 end
