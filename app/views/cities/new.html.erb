@@ -1,15 +1,17 @@
 <%= render 'creatives/navbar' %>
-<header>
-  <div class="header-content">
-    <div class="header-content-inner">
+
+<div class="container">
+  <h1 class="text-center">Create a new city</h1>
+  <hr>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
       <% if @user&&@user.isAdmin %>
-          <h1>New City</h1>
           <%= render 'form', city: @city %>
           <%= link_to 'Back', cities_path %>
-      <% else %>
-          <center><strong><font size="6">sorry you are not Admin </font></strong></center>
-          <%= link_to "back", root_path %>
       <% end %>
     </div>
   </div>
-</header>
+</div>
