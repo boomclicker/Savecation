@@ -1,27 +1,11 @@
-<%= render 'creatives/navbar' %>
+ <%= render 'creatives/navbar' %>
 
 
 
 <header>
   <div class="header-content">
     <div class="header-content-inner">
-      <h1>User Profile Page</h1>
-      <hr>
-      <% if flash[:success] %>
-        <div class="success" align="center" ><font size="5"><%= flash[:success] %></font></div>
-      <% end %>  
-      <p>
-        <strong>Username:</strong>
-        <%= @user.username %>
-        <%= @city_id %>
-      </p>
-
-      <p>
-        <strong>Email:</strong>
-        <%= @user.email %>
-      </p>
-
-        <% if @user.isAdmin %>
+ <% if @user.isAdmin %>
 
               <h3>ADMIN</h3>
               <table>
@@ -37,11 +21,14 @@
                       <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                 <% end %>
+   <% else %>
+            <h3>Sorry you are not Admin</h3>
+
+
           <% end %>
 
 
           </table>
-
 
     </div>
   </div>
