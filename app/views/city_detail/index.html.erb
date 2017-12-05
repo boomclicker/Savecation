@@ -176,7 +176,7 @@
 
 <script>
     //  var xhr = new XMLHttpRequest();
-    var apiAddress = 'http://api.apixu.com/v1/forecast.json?key=c0d375072f834120aa250648170312&days=10&q=';
+    var apiAddress = 'https://api.apixu.com/v1/forecast.json?key=c0d375072f834120aa250648170312&days=10&q=';
     var city = '<%= @city_name%>';
     var url = apiAddress + city;
 
@@ -195,7 +195,7 @@
 
             var temp = data.current.temp_c + "&#8451;";
             var weatherX = data.current.condition.text;
-            var weathercode = 'http:' + data.current.condition.icon;
+            var weathercode = 'https:' + data.current.condition.icon;
 
             document.getElementById("mytemp").innerHTML = temp;
             //      document.getElementById("myweatherX").innerHTML = weatherX;
@@ -209,7 +209,7 @@
 
             var temp1 = data.forecast.forecastday[1].hour[15].temp_c + "&#8451;";
             var weather1 = data.forecast.forecastday[1].hour[15].condition.text;
-            var weathercode1 = 'http:' + data.forecast.forecastday[1].hour[15].condition.icon;
+            var weathercode1 = 'https:' + data.forecast.forecastday[1].hour[15].condition.icon;
 
             document.getElementById("mytemp1").innerHTML = temp1;
             //    document.getElementById("myweather1").innerHTML = weather1;
@@ -222,7 +222,7 @@
 
             var temp2 = data.forecast.forecastday[2].hour[15].temp_c + "&#8451;";
             var weather2 = data.forecast.forecastday[2].hour[15].condition.text;
-            var weathercode2 = 'http:' + data.forecast.forecastday[2].hour[15].condition.icon;
+            var weathercode2 = 'https:' + data.forecast.forecastday[2].hour[15].condition.icon;
 
             document.getElementById("mytemp2").innerHTML = temp2;
             //     document.getElementById("myweather2").innerHTML = weather2;
@@ -235,7 +235,7 @@
 
             var temp3 = data.forecast.forecastday[3].hour[15].temp_c + "&#8451;";
             var weather3 = data.forecast.forecastday[3].hour[15].condition.text;
-            var weathercode3 = 'http:' + data.forecast.forecastday[3].hour[15].condition.icon;
+            var weathercode3 = 'https:' + data.forecast.forecastday[3].hour[15].condition.icon;
 
             document.getElementById("mytemp3").innerHTML = temp3;
             //      document.getElementById("myweather3").innerHTML = weather3;
@@ -248,7 +248,7 @@
 
             var temp4 = data.forecast.forecastday[4].hour[15].temp_c + "&#8451;";
             var weather4 = data.forecast.forecastday[4].hour[15].condition.text;
-            var weathercode4 = 'http:' + data.forecast.forecastday[4].hour[15].condition.icon;
+            var weathercode4 = 'https:' + data.forecast.forecastday[4].hour[15].condition.icon;
 
             document.getElementById("mytemp4").innerHTML = temp4;
             //    document.getElementById("myweather4").innerHTML = weather4;
@@ -261,7 +261,7 @@
 
             var temp5 = data.forecast.forecastday[5].hour[15].temp_c + "&#8451;";
             var weather5 = data.forecast.forecastday[5].hour[15].condition.text;
-            var weathercode5 = 'http:' + data.forecast.forecastday[5].hour[15].condition.icon;
+            var weathercode5 = 'https:' + data.forecast.forecastday[5].hour[15].condition.icon;
 
             document.getElementById("mytemp5").innerHTML = temp5;
             //      document.getElementById("myweather5").innerHTML = weather5;
@@ -274,7 +274,7 @@
 
             var temp6 = data.forecast.forecastday[6].hour[15].temp_c + "&#8451;";
             var weather6 = data.forecast.forecastday[6].hour[15].condition.text;
-            var weathercode6 = 'http:' + data.forecast.forecastday[6].hour[15].condition.icon;
+            var weathercode6 = 'https:' + data.forecast.forecastday[6].hour[15].condition.icon;
 
             document.getElementById("mytemp6").innerHTML = temp6;
             //    document.getElementById("myweather6").innerHTML = weather6;
@@ -287,7 +287,7 @@
 
             var temp7 = data.forecast.forecastday[7].hour[15].temp_c + "&#8451;";
             var weather7 = data.forecast.forecastday[7].hour[15].condition.text;
-            var weathercode7 = 'http:' + data.forecast.forecastday[7].hour[15].condition.icon;
+            var weathercode7 = 'https:' + data.forecast.forecastday[7].hour[15].condition.icon;
 
             document.getElementById("mytemp7").innerHTML = temp7;
             //  document.getElementById("myweather7").innerHTML = weather7;
@@ -300,7 +300,7 @@
 
             var temp8 = data.forecast.forecastday[8].hour[15].temp_c + "&#8451;";
             var weather8 = data.forecast.forecastday[8].hour[15].condition.text;
-            var weathercode8 = 'http:' + data.forecast.forecastday[8].hour[15].condition.icon;
+            var weathercode8 = 'https:' + data.forecast.forecastday[8].hour[15].condition.icon;
 
             document.getElementById("mytemp8").innerHTML = temp8;
             //    document.getElementById("myweather8").innerHTML = weather8;
@@ -313,7 +313,7 @@
 
             var temp9 = data.forecast.forecastday[9].hour[15].temp_c + "&#8451;";
             var weather9 = data.forecast.forecastday[9].hour[15].condition.text;
-            var weathercode9 = 'http:' + data.forecast.forecastday[9].hour[15].condition.icon;
+            var weathercode9 = 'https:' + data.forecast.forecastday[9].hour[15].condition.icon;
 
             document.getElementById("mytemp9").innerHTML = temp9;
             //      document.getElementById("myweather9").innerHTML = weather9;
