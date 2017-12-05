@@ -116,6 +116,47 @@
             <p id="errorInForm"></p>
         <% end %>
       </div>
+
+      <div class="row">
+          <h3>News</h3>
+          <p class = "newsheadlines" id = "newsheadline0"></p>
+          <p class = "newsheadlines" id = "newsheadline1"></p>
+          <p class = "newsheadlines" id = "newsheadline2"></p>
+
+            <script>
+
+              var urlnews = 'https://newsapi.org/v2/everything?' +'q=' +
+                           '<%= @city_name %>' + '&' +
+                            'sources=daily-mail&' +
+                           'apiKey=eb693c37d16f4bd58f1bb152f6d010d0';
+
+                           console.log(urlnews);
+                           $(function () {
+                               $.getJSON(urlnews, function (data) {
+
+                                 for(var i=0; i <3; i++){
+                                   var headlines = data.articles[i].title;
+                                   var url2 = data.articles[i].url;
+
+                              //     document.getElementById("newsheadline"+i).innerHTML = headlines;
+
+                                   var link = "<a href="+url2+">"+headlines+"</a>";
+
+                                   $(link).appendTo("#newsheadline"+i);
+
+                                 }
+
+                               })
+                             })
+
+            </script>
+
+
+
+
+
+
+      </div>
     </div>
   </div>
 </div>
