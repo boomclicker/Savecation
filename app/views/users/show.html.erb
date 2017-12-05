@@ -10,7 +10,7 @@
     <strong>Email:</strong>
     <%= @user.email %>
   </p>
-  <td><%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <p class="text-center"><%= link_to 'Delete your profile', @user, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 </div>
 
 <div class="container">
