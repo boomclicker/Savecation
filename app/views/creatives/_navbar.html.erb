@@ -21,8 +21,6 @@
         </li>
         <% if @user!=nil && @user.isAdmin %>
 
-            <!--        <div id = "logged_in">Logged in as <%= current_user.username %>.</div> -->
-
             <li>
               <%= link_to "Profile page", user_url(current_user.id) %>
             </li>

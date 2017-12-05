@@ -1,19 +1,28 @@
 <%= render 'creatives/navbar' %>
 
-<header id="header_city_omg">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <div class="header-content">
-    <div class="header-content-inner" id="title_cities">
+<div class="container">
+  <h1 class="text-center">All the cities we support</h1>
+  <hr>
+</div>
 
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <div id="outer_map" align="center">
-        <div id="map" align="right"></div>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12" style="height: 400px; margin-bottom: 20px">
+      <iframe width="100%" height="100%" src="https://www.google.com/maps/d/embed?mid=1Xvu2vmjRKCDTaUOAIdnqImSUHUKma904&z=3">
+      </iframe>
     </div>
   </div>
+</div>
 
-</header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 text-center">
+      <% @cities.each do |x| %>
+          <% @blah = "http://pure-coast-27115.herokuapp.com/city_detail/" + x.id.to_s %>
+          <a href="<%= @blah %>" class="btn btn-success"><%= x.name %></a>
+      <% end %>
+    </div>
+  </div>
+</div>
